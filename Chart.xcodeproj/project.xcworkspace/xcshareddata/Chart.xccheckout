@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D1337188-CD53-465C-A122-84FFDC8D97A6</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D101AE10EEFEB581D29CF4DA0ACCEE61308EEDEE</key>
+		<string>github.com:morganwilde/chart.git</string>
+	</dict>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D101AE10EEFEB581D29CF4DA0ACCEE61308EEDEE</key>
+		<string>Chart/</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:morganwilde/chart.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D101AE10EEFEB581D29CF4DA0ACCEE61308EEDEE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D101AE10EEFEB581D29CF4DA0ACCEE61308EEDEE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Chart</string>
+		</dict>
+	</array>
+</dict>
+</plist>
