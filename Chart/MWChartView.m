@@ -11,6 +11,7 @@
 #import "MWChartBar.h"
 #import "MWChartGoalLine.h"
 #import "MWDayLabel.h"
+#import "MWMonthLabel.h"
 
 @interface MWChartView ()
 

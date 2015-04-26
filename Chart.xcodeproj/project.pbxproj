@@ -29,6 +29,9 @@
 		2E3F5EAE1AE5A5A20039C52B /* MWChartLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3F5EAD1AE5A5A20039C52B /* MWChartLine.m */; };
 		2E3F5EB11AE6B6460039C52B /* MWChartGoalLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3F5EB01AE6B6460039C52B /* MWChartGoalLine.m */; };
 		2E6C91521AED493E0022CFD5 /* MWDayLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C91511AED493E0022CFD5 /* MWDayLabel.m */; };
+		2E6C91551AED62680022CFD5 /* MWMonthLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C91541AED62680022CFD5 /* MWMonthLabel.m */; };
+		2E6C91581AED7E030022CFD5 /* MWChartContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C91571AED7E030022CFD5 /* MWChartContainerView.m */; };
+		2E6C915B1AED80500022CFD5 /* MWChartHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C915A1AED80500022CFD5 /* MWChartHeaderView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +81,12 @@
 		2E3F5EB01AE6B6460039C52B /* MWChartGoalLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWChartGoalLine.m; sourceTree = "<group>"; };
 		2E6C91501AED493E0022CFD5 /* MWDayLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWDayLabel.h; sourceTree = "<group>"; };
 		2E6C91511AED493E0022CFD5 /* MWDayLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWDayLabel.m; sourceTree = "<group>"; };
+		2E6C91531AED62680022CFD5 /* MWMonthLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWMonthLabel.h; sourceTree = "<group>"; };
+		2E6C91541AED62680022CFD5 /* MWMonthLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWMonthLabel.m; sourceTree = "<group>"; };
+		2E6C91561AED7E030022CFD5 /* MWChartContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWChartContainerView.h; sourceTree = "<group>"; };
+		2E6C91571AED7E030022CFD5 /* MWChartContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWChartContainerView.m; sourceTree = "<group>"; };
+		2E6C91591AED80500022CFD5 /* MWChartHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWChartHeaderView.h; sourceTree = "<group>"; };
+		2E6C915A1AED80500022CFD5 /* MWChartHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWChartHeaderView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +190,8 @@
 				2E2CA5061AE41A6E00E3FAE6 /* MWChart.m */,
 				2E6C91501AED493E0022CFD5 /* MWDayLabel.h */,
 				2E6C91511AED493E0022CFD5 /* MWDayLabel.m */,
+				2E6C91531AED62680022CFD5 /* MWMonthLabel.h */,
+				2E6C91541AED62680022CFD5 /* MWMonthLabel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -200,6 +211,10 @@
 			children = (
 				2E2CA5121AE543D000E3FAE6 /* MWChartView.h */,
 				2E2CA5131AE543D000E3FAE6 /* MWChartView.m */,
+				2E6C91591AED80500022CFD5 /* MWChartHeaderView.h */,
+				2E6C915A1AED80500022CFD5 /* MWChartHeaderView.m */,
+				2E6C91561AED7E030022CFD5 /* MWChartContainerView.h */,
+				2E6C91571AED7E030022CFD5 /* MWChartContainerView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -308,15 +323,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E2CA4D81AE40D2A00E3FAE6 /* ViewController.m in Sources */,
+				2E6C91581AED7E030022CFD5 /* MWChartContainerView.m in Sources */,
 				2E2CA5141AE543D000E3FAE6 /* MWChartView.m in Sources */,
 				2E2CA4F81AE40D6E00E3FAE6 /* MWData.m in Sources */,
 				2E2CA4D51AE40D2A00E3FAE6 /* AppDelegate.m in Sources */,
 				2E2CA5021AE4188B00E3FAE6 /* MWChartBar.m in Sources */,
 				2E3F5EAE1AE5A5A20039C52B /* MWChartLine.m in Sources */,
 				2E2CA5071AE41A6E00E3FAE6 /* MWChart.m in Sources */,
+				2E6C91551AED62680022CFD5 /* MWMonthLabel.m in Sources */,
 				2E3F5EB11AE6B6460039C52B /* MWChartGoalLine.m in Sources */,
 				2E2CA4D21AE40D2A00E3FAE6 /* main.m in Sources */,
 				2E2CA4FD1AE4101100E3FAE6 /* MWDataContainer.m in Sources */,
+				2E6C915B1AED80500022CFD5 /* MWChartHeaderView.m in Sources */,
 				2E6C91521AED493E0022CFD5 /* MWDayLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

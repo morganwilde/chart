@@ -10,6 +10,7 @@
 @import CoreGraphics;
 #import "MWDataContainer.h"
 #import "MWChartLine.h"
+#import "MWMonthLabel.h"
 
 @interface MWChart : NSObject
 
@@ -38,7 +39,8 @@
 @property (nonatomic) NSInteger negativePadding;
 @property (nonatomic) NSInteger valueRangeWithPadding;
 
-// Geometry arrays
+// Geometry objects/arrays
+@property (nonatomic) MWMonthLabel *monthLabel;
 @property (nonatomic) NSArray *bars;
 @property (nonatomic) NSArray *markerLines;
 @property (nonatomic) NSArray *goalLines;
@@ -46,6 +48,7 @@
 
 - (instancetype)initWithDataContainer:(MWDataContainer *)dataContainer;
 - (instancetype)initWithDataContainer:(MWDataContainer *)dataContainer height:(CGFloat)height;
+- (instancetype)initWithDataContainer:(MWDataContainer *)dataContainer height:(CGFloat)height dateComponents:(NSDateComponents *)dateComponents;
 
 - (void)createBars;
 - (void)createMarkerLines;

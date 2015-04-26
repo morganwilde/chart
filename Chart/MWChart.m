@@ -23,12 +23,14 @@
 
 @implementation MWChart
 
-- (instancetype)initWithDataContainer:(MWDataContainer *)dataContainer height:(CGFloat)height
+- (instancetype)initWithDataContainer:(MWDataContainer *)dataContainer height:(CGFloat)height dateComponents:(NSDateComponents *)dateComponents
 {
     self = [super init];
     if (self) {
         // Properties from user
         self.dataContainer = dataContainer;
+        self.dateComponents = dateComponents;
+        self.monthLabel = [[MWMonthLabel alloc] initWithChartDateComponents:self.dateComponents];
         
         // Filler
         _zeroLineHeight = 2;
@@ -41,9 +43,16 @@
     return self;
 }
 
+- (instancetype)initWithDataContainer:(MWDataContainer *)dataContainer height:(CGFloat)height
+{
+    NSDateComponents *dateComponentNow = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+    return [self initWithDataContainer:dataContainer height:height dateComponents:dateComponentNow];
+}
+
 - (instancetype)initWithDataContainer:(MWDataContainer *)dataContainer
 {
-    return [self initWithDataContainer:dataContainer height:100];
+    NSDateComponents *dateComponentNow = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+    return [self initWithDataContainer:dataContainer height:100 dateComponents:dateComponentNow];
 }
 
 - (void)analyseData
@@ -210,7 +219,6 @@
     for (MWData *data in self.dataContainer.dataArray) {
         if (data.goal != currentGoal) {
             // Save the ongoing goal line
-            NSLog(@"currentGoalStarted: %ld : %ld", currentGoalStarted, currentGoalLength);
             MWChartGoalLine *goalLine = [[MWChartGoalLine alloc] initWithGoal:currentGoal chart:self barRange:NSMakeRange(currentGoalStarted, currentGoalLength)];
             MWChartLine *markerLine = [self markerLineAtLevel:currentGoal];
             [markerLine addGoalLine:goalLine];
@@ -225,7 +233,6 @@
         currentGoalLength++;
     }
     // Save the last goal line
-    NSLog(@"currentGoalStarted: %ld : %ld", currentGoalStarted, currentGoalLength);
     MWChartGoalLine *goalLine = [[MWChartGoalLine alloc] initWithGoal:currentGoal chart:self barRange:NSMakeRange(currentGoalStarted, currentGoalLength)];
     MWChartLine *markerLine = [self markerLineAtLevel:currentGoal];
     [markerLine addGoalLine:goalLine];

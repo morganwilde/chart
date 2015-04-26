@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "MWChartView.h"
+#import "MWChartContainerView.h"
 
 @interface ViewController ()
 
@@ -36,13 +37,13 @@
     
     // Creates the view and puts it on the screen
     MWDataContainer *dataContainer = [[MWDataContainer alloc] initWithDataArray:dataArray];
-    MWChart *chart = [[MWChart alloc] initWithDataContainer: dataContainer height:CHART_HEIGHT];
-    chart.dateComponents = [[NSCalendar currentCalendar] components:NSCalendarUnitMonth | NSCalendarUnitYear fromDate:date];
+    MWChart *chart = [[MWChart alloc] initWithDataContainer: dataContainer height:CHART_HEIGHT dateComponents:dateComponentNow];
     [chart createChart];
     
     CGPoint chartPosition = CGPointMake(0, self.view.frame.size.height/2 - chart.height/2);
     
-    MWChartView *chartView = [[MWChartView alloc] initWithPosition:chartPosition chart:chart];
+//    MWChartView *chartView = [[MWChartView alloc] initWithPosition:chartPosition chart:chart];
+    MWChartContainerView *chartView = [[MWChartContainerView alloc] initWithPosition:chartPosition chart:chart];
     
     [self.view addSubview:chartView];
 }
