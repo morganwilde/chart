@@ -36,7 +36,7 @@
 
 + (NSDictionary *)dayAttributes
 {
-    UIFont *font = [UIFont fontWithName:@"Comfortaa-Bold" size:15];
+    UIFont *font = [UIFont fontWithName:@"Comfortaa-Bold" size:16];
     NSDictionary *attributes = @{NSFontAttributeName: font,
                                  NSForegroundColorAttributeName: [UIColor blackColor]};
     
@@ -44,13 +44,28 @@
 }
 + (NSDictionary *)weekdayAttributes
 {
-    UIFont *font = [UIFont fontWithName:@"Comfortaa-Bold" size:10];
+    UIFont *font = [UIFont fontWithName:@"Comfortaa-Regular" size:11];
     NSDictionary *attributes = @{NSFontAttributeName: font,
                                  NSForegroundColorAttributeName: [UIColor blackColor]};
     
     return attributes;
 }
 
+#pragma mark - Class constants
++ (CGFloat)paddingTop
+{
+    return 6;
+}
++ (CGFloat)paddingMiddle
+{
+    return 1;
+}
++ (CGFloat)paddingBottom
+{
+    return 6;
+}
+
+#pragma mark - Size
 + (CGSize)weekdayTextSize
 {
     NSAttributedString *test = [[NSAttributedString alloc] initWithString:@"MMM" attributes:[MWDayLabel weekdayAttributes]];
@@ -63,7 +78,8 @@
 }
 + (CGFloat)dayLabelHeight
 {
-    return [MWDayLabel weekdayTextSize].height + [MWDayLabel dayTextSize].height;
+    CGFloat paddingTotal = [MWDayLabel paddingTop] + [MWDayLabel paddingMiddle] + [MWDayLabel paddingBottom];
+    return [MWDayLabel weekdayTextSize].height + [MWDayLabel dayTextSize].height + paddingTotal;
 }
 
 - (MWWeekday)weekdayNumber
@@ -115,7 +131,7 @@
 {
     CGSize size = [self.weekdayString size];
     CGRect rect = CGRectMake(self.frame.origin.x + self.frame.size.width/2 - size.width/2,
-                             self.frame.origin.y,
+                             self.frame.origin.y + [MWDayLabel paddingTop],
                              size.width,
                              size.height);
     
@@ -126,7 +142,7 @@
 {
     CGSize size = [self.dayString size];
     CGRect rect = CGRectMake(self.frame.origin.x + self.frame.size.width/2 - size.width/2,
-                             self.frame.origin.y + self.frame.size.height - size.height,
+                             self.frame.origin.y + [MWDayLabel paddingTop] + [MWDayLabel weekdayTextSize].height + [MWDayLabel paddingMiddle],
                              size.width,
                              size.height);
     
