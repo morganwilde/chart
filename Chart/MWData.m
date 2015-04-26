@@ -17,8 +17,6 @@
         self.value = value;
         self.goal = goal;
         self.date = date;
-        
-        NSLog(@"dayNumber: %ld", [self dayNumber]);
     }
     return self;
 }

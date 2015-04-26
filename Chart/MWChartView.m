@@ -10,6 +10,7 @@
 #import "MWChartLine.h"
 #import "MWChartBar.h"
 #import "MWChartGoalLine.h"
+#import "MWDayLabel.h"
 
 @interface MWChartView ()
 
@@ -24,7 +25,7 @@
     CGRect frame = CGRectMake(position.x,
                               position.y,
                               [chart width],
-                              [chart heightTotal]);
+                              [chart heightTotal] + [MWDayLabel dayLabelHeight]);
     
     self = [super initWithFrame:frame];
     if (self) {
@@ -160,6 +161,12 @@
         
         
         index++;
+    }
+    
+    // Draw day labels
+    for (MWDayLabel *dayLabel in self.chart.dayLabels) {
+        [dayLabel.weekdayString drawInRect:[dayLabel weekdayFrame]];
+        [dayLabel.dayString drawInRect:[dayLabel dayFrame]];
     }
 }
 

@@ -18,16 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    NSArray *dataArray = @[[MWData dataWithValue:10 goal:80],
-//                           [MWData dataWithValue:20 goal:80],
-//                           [MWData dataWithValue:30 goal:80],
-//                           [MWData dataWithValue:40 goal:80],
-//                           [MWData dataWithValue:50 goal:80],
-//                           [MWData dataWithValue:60 goal:80],
-//                           [MWData dataWithValue:70 goal:30],
-//                           [MWData dataWithValue:80 goal:10],];
-
-    
     NSDateComponents *dateComponentNow = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
     [dateComponents setYear:dateComponentNow.year];
@@ -39,13 +29,15 @@
     NSArray *dataArray = @[[MWData dataWithValue:10 goal:80 date:[date dateByAddingTimeInterval:0*day]],
                            [MWData dataWithValue:20 goal:80 date:[date dateByAddingTimeInterval:1*day]],
                            [MWData dataWithValue:30 goal:60 date:[date dateByAddingTimeInterval:2*day]],
-                           [MWData dataWithValue:40 goal:60 date:[date dateByAddingTimeInterval:3*day]],];
+                           [MWData dataWithValue:40 goal:60 date:[date dateByAddingTimeInterval:3*day]],
+                           [MWData dataWithValue:40 goal:60 date:[date dateByAddingTimeInterval:4*day]],
+                           [MWData dataWithValue:40 goal:60 date:[date dateByAddingTimeInterval:5*day]],];
     
-    //
     
     // Creates the view and puts it on the screen
     MWDataContainer *dataContainer = [[MWDataContainer alloc] initWithDataArray:dataArray];
     MWChart *chart = [[MWChart alloc] initWithDataContainer: dataContainer height:CHART_HEIGHT];
+    chart.dateComponents = [[NSCalendar currentCalendar] components:NSCalendarUnitMonth | NSCalendarUnitYear fromDate:date];
     [chart createChart];
     
     CGPoint chartPosition = CGPointMake(0, self.view.frame.size.height/2 - chart.height/2);

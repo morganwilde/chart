@@ -22,4 +22,6 @@
 + (MWData *)createDataWithValue:(NSInteger)value;
 + (MWData *)dataWithValue:(NSInteger)value goal:(NSInteger)goal date:(NSDate *)date;
 
+- (NSInteger)dayNumber;
+
 @end

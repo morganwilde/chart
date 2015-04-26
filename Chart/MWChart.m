@@ -9,6 +9,7 @@
 #import "MWChart.h"
 #import "MWChartBar.h"
 #import "MWChartGoalLine.h"
+#import "MWDayLabel.h"
 
 @interface MWChart ()
 
@@ -230,6 +231,29 @@
     [markerLine addGoalLine:goalLine];
 }
 
+- (void)createDayLabels
+{
+    NSMutableArray *array = [NSMutableArray array];
+    
+    CGFloat positionX = 0;
+    CGFloat positionY = self.heightTotal;
+    CGFloat width = self.barWidth;
+    CGFloat height = [MWDayLabel dayLabelHeight];
+    
+    for (MWData *data in self.dataContainer.dataArray) {
+        CGRect frame = CGRectMake(positionX,
+                                  positionY,
+                                  width,
+                                  height);
+        MWDayLabel *dayLabel = [[MWDayLabel alloc] initWidthDayNumber:[data dayNumber] chartDateComponents:self.dateComponents frame:frame];
+        [array addObject:dayLabel];
+        
+        positionX += self.barWidth + self.barPaddingRight;
+    }
+    
+    self.dayLabels = array;
+}
+
 #pragma mark - Chart creation
 
 - (void)createChart
@@ -238,6 +262,7 @@
     [self createBars];
     [self createMarkerLines];
     [self createGoalLines];
+    [self createDayLabels];
 }
 
 #pragma mark - Setters

@@ -19,6 +19,9 @@
 @property (nonatomic) CGFloat barWidth;
 @property (nonatomic) CGFloat barPaddingRight;
 
+// Date
+@property (nonatomic) NSDateComponents *dateComponents;
+
 // Height related properties
 
 // Bar label related properties
@@ -39,6 +42,7 @@
 @property (nonatomic) NSArray *bars;
 @property (nonatomic) NSArray *markerLines;
 @property (nonatomic) NSArray *goalLines;
+@property (nonatomic) NSArray *dayLabels;
 
 - (instancetype)initWithDataContainer:(MWDataContainer *)dataContainer;
 - (instancetype)initWithDataContainer:(MWDataContainer *)dataContainer height:(CGFloat)height;

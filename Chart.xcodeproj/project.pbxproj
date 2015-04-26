@@ -28,6 +28,7 @@
 		2E2CA5141AE543D000E3FAE6 /* MWChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2CA5131AE543D000E3FAE6 /* MWChartView.m */; };
 		2E3F5EAE1AE5A5A20039C52B /* MWChartLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3F5EAD1AE5A5A20039C52B /* MWChartLine.m */; };
 		2E3F5EB11AE6B6460039C52B /* MWChartGoalLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3F5EB01AE6B6460039C52B /* MWChartGoalLine.m */; };
+		2E6C91521AED493E0022CFD5 /* MWDayLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C91511AED493E0022CFD5 /* MWDayLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,8 @@
 		2E3F5EAD1AE5A5A20039C52B /* MWChartLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWChartLine.m; sourceTree = "<group>"; };
 		2E3F5EAF1AE6B6460039C52B /* MWChartGoalLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWChartGoalLine.h; sourceTree = "<group>"; };
 		2E3F5EB01AE6B6460039C52B /* MWChartGoalLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWChartGoalLine.m; sourceTree = "<group>"; };
+		2E6C91501AED493E0022CFD5 /* MWDayLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWDayLabel.h; sourceTree = "<group>"; };
+		2E6C91511AED493E0022CFD5 /* MWDayLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWDayLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +179,8 @@
 				2E3F5EB01AE6B6460039C52B /* MWChartGoalLine.m */,
 				2E2CA5051AE41A6E00E3FAE6 /* MWChart.h */,
 				2E2CA5061AE41A6E00E3FAE6 /* MWChart.m */,
+				2E6C91501AED493E0022CFD5 /* MWDayLabel.h */,
+				2E6C91511AED493E0022CFD5 /* MWDayLabel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -312,6 +317,7 @@
 				2E3F5EB11AE6B6460039C52B /* MWChartGoalLine.m in Sources */,
 				2E2CA4D21AE40D2A00E3FAE6 /* main.m in Sources */,
 				2E2CA4FD1AE4101100E3FAE6 /* MWDataContainer.m in Sources */,
+				2E6C91521AED493E0022CFD5 /* MWDayLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
