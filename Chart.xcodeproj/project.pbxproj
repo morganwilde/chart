@@ -32,6 +32,7 @@
 		2E6C91551AED62680022CFD5 /* MWMonthLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C91541AED62680022CFD5 /* MWMonthLabel.m */; };
 		2E6C91581AED7E030022CFD5 /* MWChartContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C91571AED7E030022CFD5 /* MWChartContainerView.m */; };
 		2E6C915B1AED80500022CFD5 /* MWChartHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C915A1AED80500022CFD5 /* MWChartHeaderView.m */; };
+		2ED6B0A51AEE548F00B452A9 /* MWChartHeaderLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED6B0A41AEE548F00B452A9 /* MWChartHeaderLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,8 @@
 		2E6C91571AED7E030022CFD5 /* MWChartContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWChartContainerView.m; sourceTree = "<group>"; };
 		2E6C91591AED80500022CFD5 /* MWChartHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWChartHeaderView.h; sourceTree = "<group>"; };
 		2E6C915A1AED80500022CFD5 /* MWChartHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWChartHeaderView.m; sourceTree = "<group>"; };
+		2ED6B0A31AEE548F00B452A9 /* MWChartHeaderLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWChartHeaderLayer.h; sourceTree = "<group>"; };
+		2ED6B0A41AEE548F00B452A9 /* MWChartHeaderLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWChartHeaderLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +216,8 @@
 				2E2CA5131AE543D000E3FAE6 /* MWChartView.m */,
 				2E6C91591AED80500022CFD5 /* MWChartHeaderView.h */,
 				2E6C915A1AED80500022CFD5 /* MWChartHeaderView.m */,
+				2ED6B0A31AEE548F00B452A9 /* MWChartHeaderLayer.h */,
+				2ED6B0A41AEE548F00B452A9 /* MWChartHeaderLayer.m */,
 				2E6C91561AED7E030022CFD5 /* MWChartContainerView.h */,
 				2E6C91571AED7E030022CFD5 /* MWChartContainerView.m */,
 			);
@@ -334,6 +339,7 @@
 				2E3F5EB11AE6B6460039C52B /* MWChartGoalLine.m in Sources */,
 				2E2CA4D21AE40D2A00E3FAE6 /* main.m in Sources */,
 				2E2CA4FD1AE4101100E3FAE6 /* MWDataContainer.m in Sources */,
+				2ED6B0A51AEE548F00B452A9 /* MWChartHeaderLayer.m in Sources */,
 				2E6C915B1AED80500022CFD5 /* MWChartHeaderView.m in Sources */,
 				2E6C91521AED493E0022CFD5 /* MWDayLabel.m in Sources */,
 			);

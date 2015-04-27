@@ -12,7 +12,7 @@
 #define CHART_HEIGHT 240
 #define CHART_ZERO_LINE_THICKNESS 10
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UIScrollViewDelegate>
 
 @end
 

@@ -11,6 +11,8 @@
 
 @interface MWChartHeaderView : UIView
 
+@property (nonatomic) CGFloat visibleFromX;
+
 - (instancetype)initWithPosition:(CGPoint)position chart:(MWChart *)chart;
 
 @end

@@ -7,10 +7,12 @@
 //
 
 #import "MWChartHeaderView.h"
+#import "MWChartHeaderLayer.h"
 
 @interface MWChartHeaderView ()
 
 @property (nonatomic) MWChart *chart;
+@property (nonatomic) CGFloat padding;
 
 @end
 
@@ -26,15 +28,15 @@
     if (self) {
         self.chart = chart;
         self.backgroundColor = [UIColor clearColor];
+        self.padding = self.frame.size.height/2 - self.chart.monthLabel.labelString.size.height/2;
     }
     return self;
 }
 
 - (void)drawRect:(CGRect)rect {
     CGSize labelSize = self.chart.monthLabel.labelString.size;
-    CGFloat paddingY = rect.size.height/2 - labelSize.height/2;
-    CGRect labelRect = CGRectMake(rect.origin.x + paddingY,
-                                  rect.origin.y + paddingY,
+    CGRect labelRect = CGRectMake(rect.origin.x + self.padding + self.visibleFromX,
+                                  rect.origin.y + self.padding,
                                   labelSize.width,
                                   labelSize.height);
     
@@ -43,6 +45,21 @@
 //    [labelPath fill];
     
     [self.chart.monthLabel.labelString drawInRect:labelRect];
+}
+
+- (void)setVisibleFromX:(CGFloat)visibleFromX
+{
+    CGFloat positionXMax = self.frame.size.width - self.chart.monthLabel.labelString.size.width - self.padding*2;
+    if (visibleFromX >= 0 && visibleFromX <= positionXMax) {
+        _visibleFromX = visibleFromX;
+        [self setNeedsDisplay];
+    } else if (visibleFromX < 0) {
+        _visibleFromX = 0;
+        [self setNeedsDisplay];
+    } else if (visibleFromX > positionXMax) {
+        _visibleFromX = positionXMax;
+        [self setNeedsDisplay];
+    }
 }
 
 @end

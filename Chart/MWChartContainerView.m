@@ -45,12 +45,10 @@
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)setVisibleFromX:(CGFloat)visibleFromX
+{
+    _visibleFromX = visibleFromX;
+    self.chartHeaderView.visibleFromX = _visibleFromX;
 }
-*/
 
 @end
