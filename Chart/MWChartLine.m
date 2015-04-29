@@ -9,6 +9,8 @@
 #import "MWChartLine.h"
 #import "MWChartGoalLine.h"
 
+#import "MWConstants.h"
+
 @implementation MWChartLine
 
 - (instancetype)initWithSize:(CGSize)size position:(CGPoint)position
@@ -17,7 +19,7 @@
     if (self) {
         self.size = size;
         self.position = position;
-        self.fillColor = [UIColor colorWithRed:230/255.0 green:56/255.0 blue:62/255.0 alpha:1.0];
+        self.fillColor = [MWConstants markerLineFillColor];
         self.goalLines = [NSMutableArray array];
     }
     return self;

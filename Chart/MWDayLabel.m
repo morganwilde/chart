@@ -8,6 +8,8 @@
 
 #import "MWDayLabel.h"
 
+#import "MWConstants.h"
+
 @interface MWDayLabel ()
 
 @property (nonatomic) CGRect frame;
@@ -38,7 +40,7 @@
 {
     UIFont *font = [UIFont fontWithName:@"Comfortaa-Bold" size:16];
     NSDictionary *attributes = @{NSFontAttributeName: font,
-                                 NSForegroundColorAttributeName: [UIColor blackColor]};
+                                 NSForegroundColorAttributeName: [MWConstants dayLabelDayForegroundColor]};
     
     return attributes;
 }
@@ -46,7 +48,7 @@
 {
     UIFont *font = [UIFont fontWithName:@"Comfortaa-Regular" size:11];
     NSDictionary *attributes = @{NSFontAttributeName: font,
-                                 NSForegroundColorAttributeName: [UIColor blackColor]};
+                                 NSForegroundColorAttributeName: [MWConstants dayLabelWeekdayForegroundColor]};
     
     return attributes;
 }
@@ -79,7 +81,7 @@
 + (CGFloat)dayLabelHeight
 {
     CGFloat paddingTotal = [MWDayLabel paddingTop] + [MWDayLabel paddingMiddle] + [MWDayLabel paddingBottom];
-    return [MWDayLabel weekdayTextSize].height + [MWDayLabel dayTextSize].height + paddingTotal;
+    return round([MWDayLabel weekdayTextSize].height + [MWDayLabel dayTextSize].height + paddingTotal);
 }
 
 - (MWWeekday)weekdayNumber

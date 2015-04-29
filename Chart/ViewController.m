@@ -10,6 +10,8 @@
 #import "MWChartView.h"
 #import "MWChartContainerView.h"
 
+#import "MWConstants.h"
+
 @interface ViewController ()
 
 @property (nonatomic) MWChartContainerView *chartContainerView;
@@ -89,6 +91,7 @@
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:scrollViewFrame];
     scrollView.delegate = self;
     scrollView.contentSize = CGSizeMake(self.chartContainerView.frame.size.width * 2, self.chartContainerView.frame.size.height);
+    scrollView.backgroundColor = [MWConstants chartBackgroundColor];
     
     [scrollView addSubview:self.chartContainerView];
     [scrollView addSubview:self.chartContainerView2];
@@ -113,7 +116,6 @@
 {
     self.chartContainerView.visibleFromX = scrollView.contentOffset.x;
     self.chartContainerView2.visibleFromX = scrollView.contentOffset.x;
-    //NSLog(@"scrollView.contentOffset: %@", NSStringFromCGPoint(scrollView.contentOffset));
 }
 
 @end

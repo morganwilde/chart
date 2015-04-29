@@ -8,6 +8,8 @@
 
 #import "MWChartBar.h"
 
+#import "MWConstants.h"
+
 @interface MWChartBar ()
 
 
@@ -21,8 +23,8 @@
     self = [super init];
     if (self) {
         // Default colors
-        self.fillColor = [UIColor colorWithRed:230/255.0 green:56/255.0 blue:62/255.0 alpha:1.0];
-        self.negativeFillColor = [self.fillColor colorWithAlphaComponent:0.5];
+        self.fillColor = [MWConstants goodBarFillColor];
+        self.negativeFillColor = [MWConstants badBarFillColor];
         
         self.size = size;
         self.position = position;
@@ -32,7 +34,7 @@
         _labelString = title;
         _labelFontName = BAR_LABEL_FONT_NAME;
         _labelFontSize = BAR_LABEL_FONT_SIZE;
-        self.labelColor = [UIColor blackColor];
+        self.labelColor = [MWConstants barLabelFontColor];
         // Update the label attributed string and it's bounding size
         [self updateLabelString];
     }

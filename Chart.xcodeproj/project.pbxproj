@@ -32,6 +32,7 @@
 		2E6C91551AED62680022CFD5 /* MWMonthLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C91541AED62680022CFD5 /* MWMonthLabel.m */; };
 		2E6C91581AED7E030022CFD5 /* MWChartContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C91571AED7E030022CFD5 /* MWChartContainerView.m */; };
 		2E6C915B1AED80500022CFD5 /* MWChartHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C915A1AED80500022CFD5 /* MWChartHeaderView.m */; };
+		2E9FA1911AF17E9E00B6778B /* MWConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9FA1901AF17E9E00B6778B /* MWConstants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,8 @@
 		2E6C91571AED7E030022CFD5 /* MWChartContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWChartContainerView.m; sourceTree = "<group>"; };
 		2E6C91591AED80500022CFD5 /* MWChartHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWChartHeaderView.h; sourceTree = "<group>"; };
 		2E6C915A1AED80500022CFD5 /* MWChartHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWChartHeaderView.m; sourceTree = "<group>"; };
+		2E9FA18F1AF17E9E00B6778B /* MWConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWConstants.h; sourceTree = "<group>"; };
+		2E9FA1901AF17E9E00B6778B /* MWConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWConstants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +179,8 @@
 		2E2CA4F51AE40D3200E3FAE6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2E9FA18F1AF17E9E00B6778B /* MWConstants.h */,
+				2E9FA1901AF17E9E00B6778B /* MWConstants.m */,
 				2E2CA4F61AE40D6E00E3FAE6 /* MWData.h */,
 				2E2CA4F71AE40D6E00E3FAE6 /* MWData.m */,
 				2E2CA4FB1AE4101100E3FAE6 /* MWDataContainer.h */,
@@ -325,6 +330,7 @@
 				2E2CA4D81AE40D2A00E3FAE6 /* ViewController.m in Sources */,
 				2E6C91581AED7E030022CFD5 /* MWChartContainerView.m in Sources */,
 				2E2CA5141AE543D000E3FAE6 /* MWChartView.m in Sources */,
+				2E9FA1911AF17E9E00B6778B /* MWConstants.m in Sources */,
 				2E2CA4F81AE40D6E00E3FAE6 /* MWData.m in Sources */,
 				2E2CA4D51AE40D2A00E3FAE6 /* AppDelegate.m in Sources */,
 				2E2CA5021AE4188B00E3FAE6 /* MWChartBar.m in Sources */,

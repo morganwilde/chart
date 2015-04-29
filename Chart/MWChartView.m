@@ -13,6 +13,8 @@
 #import "MWDayLabel.h"
 #import "MWMonthLabel.h"
 
+#import "MWConstants.h"
+
 @interface MWChartView ()
 
 @property (nonatomic) MWChart *chart;
@@ -27,13 +29,14 @@
                               position.y,
                               [chart width],
                               [chart heightTotal] + [MWDayLabel dayLabelHeight]);
+    NSLog(@"frame: %@", NSStringFromCGRect(frame));
     
     self = [super initWithFrame:frame];
     if (self) {
         self.chart = chart;
         
         // Default colors
-        self.chartBackgroundColor = [UIColor colorWithRed:238/255.0 green:199/255.0 blue:101/255.0 alpha:1];
+        self.chartBackgroundColor = [MWConstants chartBackgroundColor];
         
         self.backgroundColor = self.chartBackgroundColor;
     }
@@ -43,7 +46,7 @@
 - (void)drawRect:(CGRect)rect
 {
     // Draw the zero line
-    [[UIColor colorWithRed:230/255.0 green:56/255.0 blue:62/255.0 alpha:1.0] setFill];
+    [[MWConstants zeroMarkerLineFillColor] setFill];
     UIBezierPath *zeroLinePath = [UIBezierPath bezierPathWithRect:[self.chart zeroLineFrame]];
     [zeroLinePath fill];
     
@@ -94,16 +97,10 @@
                 [goalLinePaths addObject:goalLineStart];
                 [goalLinePaths addObject:goalLineEnd];
                 
-                [[UIColor blackColor] setFill];
-                [[UIColor blackColor] setStroke];
-                
-                [goalLineStart fill];
-                [goalLineEnd stroke];
-                
                 // Goal line
                 lineStartPointX += goalLinePointSize.width;
                 lineEndPointX -= goalLinePointSize.width;
-                [[UIColor whiteColor] setFill];
+                //[[UIColor whiteColor] setFill];
                 
                 UIBezierPath *goalPath = [UIBezierPath bezierPath];
                 [goalPath moveToPoint:CGPointMake(lineStartPointX, rect.origin.y)];
@@ -111,9 +108,6 @@
                 goalPath.lineWidth = 1;
                 CGFloat dashPattern[] = {6, 2};
                 [goalPath setLineDash:dashPattern count:2 phase:0];
-                UIColor *goalLineColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
-                [goalLineColor setStroke];
-                [goalPath stroke];
                 
                 [goalLinePaths addObject:goalPath];
             }
@@ -153,9 +147,8 @@
     // Draw goal lines
     NSInteger index = 0;
     for (UIBezierPath *goalPath in goalLinePaths) {
-        [[UIColor blackColor] setFill];
-        UIColor *goalLineColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
-        [goalLineColor setStroke];
+        [[MWConstants goalLineFillColor] setFill];
+        [[MWConstants goalLineStrokeColor] setStroke];
         
         if (index % 3 == 0) {
             [goalPath fill];

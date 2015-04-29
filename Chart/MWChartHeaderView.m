@@ -8,6 +8,8 @@
 
 #import "MWChartHeaderView.h"
 
+#import "MWConstants.h"
+
 @interface MWChartHeaderView ()
 
 @property (nonatomic) MWChart *chart;
@@ -23,12 +25,15 @@
                               position.y,
                               [chart width],
                               [MWMonthLabel labelHeight]);
+    
     self = [super initWithFrame:frame];
+    
     if (self) {
         self.chart = chart;
-        self.backgroundColor = [UIColor clearColor];
         self.padding = self.frame.size.height/2 - self.chart.monthLabel.labelString.size.height/2;
+        self.backgroundColor = [MWConstants chartBackgroundColor];
     }
+    
     return self;
 }
 
@@ -49,16 +54,16 @@
 - (void)setVisibleFromX:(CGFloat)visibleFromX
 {
     CGFloat positionXMax = self.frame.size.width - self.chart.monthLabel.labelString.size.width - self.padding*2;
+    
     if (visibleFromX >= 0 && visibleFromX <= positionXMax) {
         _visibleFromX = visibleFromX;
-        [self setNeedsDisplay];
     } else if (visibleFromX < 0) {
         _visibleFromX = 0;
-        [self setNeedsDisplay];
     } else if (visibleFromX > positionXMax) {
         _visibleFromX = positionXMax;
-        [self setNeedsDisplay];
     }
+    
+    [self setNeedsDisplay];
 }
 
 @end

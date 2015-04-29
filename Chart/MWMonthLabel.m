@@ -8,6 +8,8 @@
 
 #import "MWMonthLabel.h"
 
+#import "MWConstants.h"
+
 @interface MWMonthLabel ()
 
 @property (nonatomic) MWMonth month;
@@ -69,7 +71,7 @@
 {
     UIFont *font = [UIFont fontWithName:@"Comfortaa-Bold" size:11];
     NSDictionary *attributes = @{NSFontAttributeName: font,
-                                 NSForegroundColorAttributeName: [UIColor blackColor]};
+                                 NSForegroundColorAttributeName: [MWConstants monthLabelForegroundColor]};
     
     return attributes;
 }
@@ -83,7 +85,7 @@
 + (CGFloat)labelHeight
 {
     CGFloat paddingTotal = [MWMonthLabel paddingTop] + [MWMonthLabel paddingBottom];
-    return [MWMonthLabel monthTextHeight] + paddingTotal;
+    return roundf([MWMonthLabel monthTextHeight] + paddingTotal);
 }
 
 @end

@@ -12,6 +12,8 @@
 #import "MWDayLabel.h"
 #import "MWMonthLabel.h"
 
+#import "MWConstants.h"
+
 @interface MWChartContainerView ()
 
 @property (nonatomic) MWChart *chart;
@@ -40,7 +42,7 @@
         [self addSubview:self.chartHeaderView];
         [self addSubview:self.chartView];
         
-        self.backgroundColor = [UIColor colorWithRed:238/255.0 green:199/255.0 blue:101/255.0 alpha:1];
+        self.backgroundColor = [MWConstants chartBackgroundColor];
     }
     return self;
 }
@@ -49,7 +51,6 @@
 {
     _visibleFromX = visibleFromX;
     self.chartHeaderView.visibleFromX = _visibleFromX - self.frame.origin.x;
-    NSLog(@"self.chartHeaderView.visibleFromX: %f", self.chartHeaderView.visibleFromX);
 }
 
 @end
