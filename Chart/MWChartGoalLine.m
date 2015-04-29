@@ -23,13 +23,13 @@
         
         // Calculate the appropriate starting position
         CGFloat barSpace = chart.barWidth + chart.barPaddingRight;
-        self.positionX = barSpace * self.from - chart.barPaddingRight/2;
+        self.positionX = barSpace * self.from;
         
         // And the width
         if (self.from == self.to) {
-            self.width = barSpace;
+            self.width = barSpace + chart.barPaddingRight/2;
         } else {
-            self.width = barSpace * self.to - self.positionX;
+            self.width = barSpace * self.to - self.positionX + chart.barPaddingRight/2;
         }
     }
     return self;

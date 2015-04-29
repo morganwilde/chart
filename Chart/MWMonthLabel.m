@@ -37,18 +37,18 @@
     if (!_monthText) {
         NSString *string = nil;
         switch (self.month) {
-            case MWJanuary  : string = @"january"; break;
-            case MWFebruary : string = @"february"; break;
-            case MWMarch    : string = @"march"; break;
-            case MWApril    : string = @"april"; break;
-            case MWMay      : string = @"may"; break;
-            case MWJune     : string = @"june"; break;
-            case MWJuly     : string = @"july"; break;
-            case MWAugust   : string = @"august"; break;
-            case MWSeptember: string = @"september"; break;
-            case MWOctober  : string = @"october"; break;
-            case MWNovember : string = @"november"; break;
-            case MWDecember : string = @"december"; break;
+            case MWJanuary  : string = @"January"; break;
+            case MWFebruary : string = @"February"; break;
+            case MWMarch    : string = @"March"; break;
+            case MWApril    : string = @"April"; break;
+            case MWMay      : string = @"May"; break;
+            case MWJune     : string = @"June"; break;
+            case MWJuly     : string = @"July"; break;
+            case MWAugust   : string = @"August"; break;
+            case MWSeptember: string = @"September"; break;
+            case MWOctober  : string = @"October"; break;
+            case MWNovember : string = @"November"; break;
+            case MWDecember : string = @"December"; break;
         }
         _monthText = string;
     }

@@ -7,7 +7,6 @@
 //
 
 #import "MWChartHeaderView.h"
-#import "MWChartHeaderLayer.h"
 
 @interface MWChartHeaderView ()
 
@@ -20,7 +19,7 @@
 
 - (instancetype)initWithPosition:(CGPoint)position chart:(MWChart *)chart
 {
-    CGRect frame = CGRectMake(position.x,
+    CGRect frame = CGRectMake(0,
                               position.y,
                               [chart width],
                               [MWMonthLabel labelHeight]);

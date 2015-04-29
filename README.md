@@ -1,5 +1,8 @@
 # Commit history
 
+## Commit 7
+![](screens/commit-7.png)
+
 ## Commit 6
 ![](screens/commit-6.png)
 

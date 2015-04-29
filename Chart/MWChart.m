@@ -110,7 +110,7 @@
 {
     NSMutableArray *array = [NSMutableArray array];
     
-    CGFloat positionX = 0;
+    CGFloat positionX = self.barPaddingRight/2;
     CGFloat positionY = 0;
 
     CGFloat zeroLineY = self.height * self.negativePart * -1;
@@ -242,7 +242,7 @@
 {
     NSMutableArray *array = [NSMutableArray array];
     
-    CGFloat positionX = 0;
+    CGFloat positionX = self.barPaddingRight/2;
     CGFloat positionY = self.heightTotal;
     CGFloat width = self.barWidth;
     CGFloat height = [MWDayLabel dayLabelHeight];
@@ -290,7 +290,7 @@
 
 - (CGFloat)width
 {
-    return (self.barWidth + self.barPaddingRight) * [self.bars count] - self.barPaddingRight;
+    return (self.barWidth + self.barPaddingRight) * [self.bars count];
 }
 
 - (CGFloat)heightTotal

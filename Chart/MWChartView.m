@@ -111,7 +111,8 @@
                 goalPath.lineWidth = 1;
                 CGFloat dashPattern[] = {6, 2};
                 [goalPath setLineDash:dashPattern count:2 phase:0];
-                [[UIColor blackColor] setStroke];
+                UIColor *goalLineColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+                [goalLineColor setStroke];
                 [goalPath stroke];
                 
                 [goalLinePaths addObject:goalPath];
@@ -153,7 +154,8 @@
     NSInteger index = 0;
     for (UIBezierPath *goalPath in goalLinePaths) {
         [[UIColor blackColor] setFill];
-        [[UIColor blackColor] setStroke];
+        UIColor *goalLineColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+        [goalLineColor setStroke];
         
         if (index % 3 == 0) {
             [goalPath fill];

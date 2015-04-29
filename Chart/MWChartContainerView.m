@@ -32,7 +32,7 @@
     if (self) {
         self.chart = chart;
         CGPoint chartHeaderPosition = CGPointMake(position.x, 0);
-        CGPoint chartPosition = CGPointMake(position.x, [MWMonthLabel labelHeight]);
+        CGPoint chartPosition = CGPointMake(0, [MWMonthLabel labelHeight]);
         
         self.chartHeaderView = [[MWChartHeaderView alloc] initWithPosition:chartHeaderPosition chart:self.chart];
         self.chartView = [[MWChartView alloc] initWithPosition:chartPosition chart:self.chart];
@@ -48,7 +48,8 @@
 - (void)setVisibleFromX:(CGFloat)visibleFromX
 {
     _visibleFromX = visibleFromX;
-    self.chartHeaderView.visibleFromX = _visibleFromX;
+    self.chartHeaderView.visibleFromX = _visibleFromX - self.frame.origin.x;
+    NSLog(@"self.chartHeaderView.visibleFromX: %f", self.chartHeaderView.visibleFromX);
 }
 
 @end
