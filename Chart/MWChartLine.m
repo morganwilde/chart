@@ -19,7 +19,6 @@
     if (self) {
         self.size = size;
         self.position = position;
-        self.fillColor = [MWConstants markerLineFillColor];
         self.goalLines = [NSMutableArray array];
     }
     return self;

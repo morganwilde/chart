@@ -6,11 +6,7 @@
 //  Copyright (c) 2015 Morgan Wilde. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
-// Chart settings - CHANGE HERE
-#define CHART_HEIGHT 240
-#define CHART_ZERO_LINE_THICKNESS 10
+@import UIKit;
 
 @interface ViewController : UIViewController <UIScrollViewDelegate>
 

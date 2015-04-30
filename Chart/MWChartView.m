@@ -29,17 +29,14 @@
                               position.y,
                               [chart width],
                               [chart heightTotal] + [MWDayLabel dayLabelHeight]);
-    NSLog(@"frame: %@", NSStringFromCGRect(frame));
     
     self = [super initWithFrame:frame];
+    
     if (self) {
         self.chart = chart;
-        
-        // Default colors
-        self.chartBackgroundColor = [MWConstants chartBackgroundColor];
-        
-        self.backgroundColor = self.chartBackgroundColor;
+        self.backgroundColor = [MWConstants chartBackgroundColor];
     }
+    
     return self;
 }
 
@@ -55,7 +52,7 @@
     
     for (MWChartLine *markerLine in self.chart.markerLines) {
         CGRect markerLineRect = [markerLine frame];
-        [markerLine.fillColor setFill];
+        [[MWConstants markerLineFillColor] setFill];
         
         if ([markerLine.goalLines count] > 0) {
             CGFloat positionXCurrent = 0;
@@ -67,7 +64,7 @@
                                          goalLine.positionX - positionXCurrent,
                                          markerLineRect.size.height);
                 positionXCurrent = goalLine.positionX + goalLine.width;
-                [markerLine.fillColor setFill];
+                [[MWConstants markerLineFillColor] setFill];
                 UIBezierPath *path = [UIBezierPath bezierPathWithRect:rect];
                 [path fill];
                 
@@ -75,12 +72,12 @@
                 CGFloat lineStartPointX = rect.origin.x + rect.size.width;
                 CGFloat lineEndPointX = rect.origin.x + rect.size.width + goalLine.width;
                 if ((goalLine.to - goalLine.from) >= 1) {
-                    lineEndPointX -= self.chart.barPaddingRight/2;
-                    positionXCurrent -= self.chart.barPaddingRight/2;
+                    lineEndPointX -= [MWConstants barPadding]/2;
+                    positionXCurrent -= [MWConstants barPadding]/2;
                 }
                 
                 // Goal line end points
-                CGSize goalLinePointSize = CGSizeMake(4, 4);
+                CGSize goalLinePointSize = [MWConstants goalLineEndCapSize];
                 lineStartPointX -= goalLinePointSize.width/2;
                 lineEndPointX += goalLinePointSize.width/2;
                 CGRect goalLineStartRect = CGRectMake(lineStartPointX,
@@ -100,7 +97,6 @@
                 // Goal line
                 lineStartPointX += goalLinePointSize.width;
                 lineEndPointX -= goalLinePointSize.width;
-                //[[UIColor whiteColor] setFill];
                 
                 UIBezierPath *goalPath = [UIBezierPath bezierPath];
                 [goalPath moveToPoint:CGPointMake(lineStartPointX, rect.origin.y)];
@@ -115,7 +111,7 @@
                                      markerLineRect.origin.y,
                                      markerLineRect.size.width - positionXCurrent,
                                      markerLineRect.size.height);
-            [markerLine.fillColor setFill];
+            [[MWConstants markerLineFillColor] setFill];
             UIBezierPath *path = [UIBezierPath bezierPathWithRect:rect];
             [path fill];
             

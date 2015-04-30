@@ -26,5 +26,25 @@
 + (UIColor *)dayLabelDayForegroundColor;
 + (UIColor *)dayLabelWeekdayForegroundColor;
 + (UIColor *)monthLabelForegroundColor;
+// Fonts - font names
++ (NSString *)barLabelFontName;
++ (NSString *)dayLabelDayFontName;
++ (NSString *)dayLabelWeekdayFontName;
++ (NSString *)monthLabelFontName;
+// Fonts - font sizes
++ (CGFloat)barLabelFontSize;
++ (CGFloat)dayLabelDayFontSize;
++ (CGFloat)dayLabelWeekdayFontSize;
++ (CGFloat)monthLabelFontSize;
+// Sizes
++ (CGFloat)chartHeight;
++ (CGFloat)barWidth;
++ (CGFloat)barPadding;
++ (CGFloat)zeroMarkerLineHeight;
++ (CGFloat)markerLineHeight;
++ (CGSize)goalLineEndCapSize;
++ (CGFloat)dayLabelTopPadding;
++ (CGFloat)dayLabelMiddlePadding;
++ (CGFloat)dayLabelBottomPadding;
 
 @end

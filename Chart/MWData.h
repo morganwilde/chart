@@ -15,11 +15,6 @@
 @property (nonatomic) NSDate *date;
 
 - (instancetype)initWithValue:(NSInteger)value goal:(NSInteger)goal date:(NSDate *)date;
-- (instancetype)initWithValue:(NSInteger)value goal:(NSInteger)goal;
-- (instancetype)initWithValue:(NSInteger)value;
-+ (MWData *)dataWithValue:(NSInteger)value goal:(NSInteger)goal;
-+ (MWData *)dataWithValue:(NSInteger)value;
-+ (MWData *)createDataWithValue:(NSInteger)value;
 + (MWData *)dataWithValue:(NSInteger)value goal:(NSInteger)goal date:(NSDate *)date;
 
 - (NSInteger)dayNumber;

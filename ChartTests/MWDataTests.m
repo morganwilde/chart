@@ -16,9 +16,9 @@
 @implementation MWDataTests
 
 - (void)testInitialiser {
-    MWData *data0 = [[MWData alloc] initWithValue:0];
-    MWData *data1 = [[MWData alloc] initWithValue:-1];
-    MWData *data2 = [[MWData alloc] initWithValue:1];
+    MWData *data0 = [[MWData alloc] initWithValue:0 goal:0 date:nil];
+    MWData *data1 = [[MWData alloc] initWithValue:-1 goal:0 date:nil];
+    MWData *data2 = [[MWData alloc] initWithValue:1 goal:0 date:nil];
     
     XCTAssertEqual(data0.value, 0, @"data value not equal");
     XCTAssertEqual(data1.value, -1, @"data value not equal");

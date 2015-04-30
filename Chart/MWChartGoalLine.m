@@ -10,6 +10,8 @@
 #import "MWChart.h"
 #import "MWChartBar.h"
 
+#import "MWConstants.h"
+
 @implementation MWChartGoalLine
 
 - (instancetype)initWithGoal:(NSInteger)goal chart:(MWChart *)chart barRange:(NSRange)range
@@ -22,14 +24,14 @@
         self.to = self.from + range.length;// - 1;
         
         // Calculate the appropriate starting position
-        CGFloat barSpace = chart.barWidth + chart.barPaddingRight;
+        CGFloat barSpace = [MWConstants barWidth] + [MWConstants barPadding];
         self.positionX = barSpace * self.from;
         
         // And the width
         if (self.from == self.to) {
-            self.width = barSpace + chart.barPaddingRight/2;
+            self.width = barSpace + [MWConstants barPadding]/2;
         } else {
-            self.width = barSpace * self.to - self.positionX + chart.barPaddingRight/2;
+            self.width = barSpace * self.to - self.positionX + [MWConstants barPadding]/2;
         }
     }
     return self;

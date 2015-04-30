@@ -38,7 +38,9 @@
 
 + (NSDictionary *)dayAttributes
 {
-    UIFont *font = [UIFont fontWithName:@"Comfortaa-Bold" size:16];
+    UIFont *font = [UIFont fontWithName:[MWConstants dayLabelDayFontName]
+                                   size:[MWConstants dayLabelDayFontSize]];
+    
     NSDictionary *attributes = @{NSFontAttributeName: font,
                                  NSForegroundColorAttributeName: [MWConstants dayLabelDayForegroundColor]};
     
@@ -46,25 +48,13 @@
 }
 + (NSDictionary *)weekdayAttributes
 {
-    UIFont *font = [UIFont fontWithName:@"Comfortaa-Regular" size:11];
+    UIFont *font = [UIFont fontWithName:[MWConstants dayLabelWeekdayFontName]
+                                   size:[MWConstants dayLabelWeekdayFontSize]];
+    
     NSDictionary *attributes = @{NSFontAttributeName: font,
                                  NSForegroundColorAttributeName: [MWConstants dayLabelWeekdayForegroundColor]};
     
     return attributes;
-}
-
-#pragma mark - Class constants
-+ (CGFloat)paddingTop
-{
-    return 6;
-}
-+ (CGFloat)paddingMiddle
-{
-    return 1;
-}
-+ (CGFloat)paddingBottom
-{
-    return 6;
 }
 
 #pragma mark - Size
@@ -80,7 +70,7 @@
 }
 + (CGFloat)dayLabelHeight
 {
-    CGFloat paddingTotal = [MWDayLabel paddingTop] + [MWDayLabel paddingMiddle] + [MWDayLabel paddingBottom];
+    CGFloat paddingTotal = [MWConstants dayLabelTopPadding] + [MWConstants dayLabelMiddlePadding] + [MWConstants dayLabelBottomPadding];
     return round([MWDayLabel weekdayTextSize].height + [MWDayLabel dayTextSize].height + paddingTotal);
 }
 
@@ -133,7 +123,7 @@
 {
     CGSize size = [self.weekdayString size];
     CGRect rect = CGRectMake(self.frame.origin.x + self.frame.size.width/2 - size.width/2,
-                             self.frame.origin.y + [MWDayLabel paddingTop],
+                             self.frame.origin.y + [MWConstants dayLabelTopPadding],
                              size.width,
                              size.height);
     
@@ -144,7 +134,7 @@
 {
     CGSize size = [self.dayString size];
     CGRect rect = CGRectMake(self.frame.origin.x + self.frame.size.width/2 - size.width/2,
-                             self.frame.origin.y + [MWDayLabel paddingTop] + [MWDayLabel weekdayTextSize].height + [MWDayLabel paddingMiddle],
+                             self.frame.origin.y + [MWConstants dayLabelTopPadding] + [MWDayLabel weekdayTextSize].height + [MWConstants dayLabelMiddlePadding],
                              size.width,
                              size.height);
     

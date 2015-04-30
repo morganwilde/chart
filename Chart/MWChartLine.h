@@ -16,7 +16,6 @@
 
 @property (nonatomic) CGSize size;
 @property (nonatomic) CGPoint position;
-@property (nonatomic) UIColor *fillColor;
 @property (nonatomic) NSInteger level;
 
 @property (nonatomic) NSMutableArray *goalLines;

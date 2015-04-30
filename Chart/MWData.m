@@ -21,31 +21,6 @@
     return self;
 }
 
-- (instancetype)initWithValue:(NSInteger)value goal:(NSInteger)goal
-{
-    return [self initWithValue:value goal:goal date:nil];
-}
-
-- (instancetype)initWithValue:(NSInteger)value
-{
-    return [self initWithValue:value goal:0];
-}
-
-+ (MWData *)createDataWithValue:(NSInteger)value
-{
-    return [[MWData alloc] initWithValue:value];
-}
-
-+ (MWData *)dataWithValue:(NSInteger)value
-{
-    return [[MWData alloc] initWithValue:value goal:0];
-}
-
-+ (MWData *)dataWithValue:(NSInteger)value goal:(NSInteger)goal
-{
-    return [[MWData alloc] initWithValue:value goal:goal];
-}
-
 + (MWData *)dataWithValue:(NSInteger)value goal:(NSInteger)goal date:(NSDate *)date
 {
     return [[MWData alloc] initWithValue:value goal:goal date:date];

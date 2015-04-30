@@ -11,6 +11,8 @@
 #import "MWChartGoalLine.h"
 #import "MWDayLabel.h"
 
+#import "MWConstants.h"
+
 @interface MWChart ()
 
 @property (nonatomic) CGFloat positivePart;
@@ -33,12 +35,8 @@
         self.monthLabel = [[MWMonthLabel alloc] initWithChartDateComponents:self.dateComponents];
         
         // Filler
-        _zeroLineHeight = 2;
-        _height = height - _zeroLineHeight;
-        _barWidth = 20;
-        _barPaddingRight = 10;
+        _height = height - [MWConstants zeroMarkerLineHeight];
         _markerLineInterval = 10;
-        _markerLineHeight = 0.5;
     }
     return self;
 }
@@ -110,7 +108,7 @@
 {
     NSMutableArray *array = [NSMutableArray array];
     
-    CGFloat positionX = self.barPaddingRight/2;
+    CGFloat positionX = [MWConstants barPadding]/2;
     CGFloat positionY = 0;
 
     CGFloat zeroLineY = self.height * self.negativePart * -1;
@@ -121,7 +119,7 @@
         if (heightRelative != heightRelative) {
             heightRelative = 0;
         }
-        CGSize size = CGSizeMake(self.barWidth, self.height * heightRelative);
+        CGSize size = CGSizeMake([MWConstants barWidth], self.height * heightRelative);
         
         // Positivity
         BOOL positive = (data.value >= 0);
@@ -134,7 +132,7 @@
         
         if (!positive) {
             positionY += size.height;
-            positionY += self.zeroLineHeight;
+            positionY += [MWConstants zeroMarkerLineHeight];
         }
         
         positionY += self.height - size.height;
@@ -146,7 +144,7 @@
         MWChartBar *bar = [[MWChartBar alloc] initWithSize:size position:position positive:positive title:title];
         [array addObject:bar];
         
-        positionX += self.barWidth + self.barPaddingRight;
+        positionX += [MWConstants barWidth] + [MWConstants barPadding];
     }
     
     self.bars = array;
@@ -192,7 +190,7 @@
             paddingYWithInset += inset;
         }
         
-        CGSize size = CGSizeMake([self width], self.markerLineHeight);
+        CGSize size = CGSizeMake([self width], [MWConstants markerLineHeight]);
         CGPoint position = CGPointMake(0, paddingYWithInset);
         
         MWChartLine *line = [[MWChartLine alloc] initWithSize:size position:position];
@@ -201,7 +199,7 @@
         if (lineNumber != zeroLineNumber) {
             [array addObject:line];
         } else {
-            lineYZeroLineJump = self.zeroLineHeight;
+            lineYZeroLineJump = [MWConstants zeroMarkerLineHeight];
         }
         
     }
@@ -220,8 +218,7 @@
         if (data.goal != currentGoal) {
             // Save the ongoing goal line
             MWChartGoalLine *goalLine = [[MWChartGoalLine alloc] initWithGoal:currentGoal chart:self barRange:NSMakeRange(currentGoalStarted, currentGoalLength)];
-            MWChartLine *markerLine = [self markerLineAtLevel:currentGoal];
-            [markerLine addGoalLine:goalLine];
+            [[self markerLineAtLevel:currentGoal] addGoalLine:goalLine];
             
             // Setup for a new one
             currentGoal = data.goal;
@@ -234,17 +231,16 @@
     }
     // Save the last goal line
     MWChartGoalLine *goalLine = [[MWChartGoalLine alloc] initWithGoal:currentGoal chart:self barRange:NSMakeRange(currentGoalStarted, currentGoalLength)];
-    MWChartLine *markerLine = [self markerLineAtLevel:currentGoal];
-    [markerLine addGoalLine:goalLine];
+    [[self markerLineAtLevel:currentGoal] addGoalLine:goalLine];
 }
 
 - (void)createDayLabels
 {
     NSMutableArray *array = [NSMutableArray array];
     
-    CGFloat positionX = self.barPaddingRight/2;
+    CGFloat positionX = [MWConstants barPadding]/2;
     CGFloat positionY = self.heightTotal;
-    CGFloat width = self.barWidth;
+    CGFloat width = [MWConstants barWidth];
     CGFloat height = [MWDayLabel dayLabelHeight];
     
     for (MWData *data in self.dataContainer.dataArray) {
@@ -255,7 +251,7 @@
         MWDayLabel *dayLabel = [[MWDayLabel alloc] initWidthDayNumber:[data dayNumber] chartDateComponents:self.dateComponents frame:frame];
         [array addObject:dayLabel];
         
-        positionX += self.barWidth + self.barPaddingRight;
+        positionX += [MWConstants barWidth] + [MWConstants barPadding];
     }
     
     self.dayLabels = array;
@@ -279,23 +275,16 @@
     _height = height;
 }
 
-- (void)setZeroLineHeight:(CGFloat)zeroLineHeight
-{
-    CGFloat heightNew = [self heightTotal] - zeroLineHeight;
-    _zeroLineHeight = zeroLineHeight;
-    self.height = heightNew;
-}
-
 #pragma mark - Getters
 
 - (CGFloat)width
 {
-    return (self.barWidth + self.barPaddingRight) * [self.bars count];
+    return ([MWConstants barWidth] + [MWConstants barPadding]) * [self.bars count];
 }
 
 - (CGFloat)heightTotal
 {
-    return self.height + self.zeroLineHeight;
+    return self.height + [MWConstants zeroMarkerLineHeight];
 }
 
 - (CGRect)zeroLineFrame
@@ -303,7 +292,7 @@
     return CGRectMake(0,
                       self.positivePart * self.height,
                       [self width],
-                      self.zeroLineHeight);
+                      [MWConstants zeroMarkerLineHeight]);
 }
 
 - (CGFloat)barLabelHeight

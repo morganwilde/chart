@@ -10,9 +10,6 @@
 @import CoreGraphics;
 @import UIKit;
 
-#define BAR_LABEL_FONT_NAME @"Comfortaa-Bold"
-#define BAR_LABEL_FONT_SIZE 17
-
 @interface MWChartBar : NSObject
 
 @property (nonatomic) CGSize size;

@@ -15,10 +15,8 @@
 @interface MWChart : NSObject
 
 @property (nonatomic) MWDataContainer *dataContainer;
-@property (nonatomic) CGFloat zeroLineHeight;
+//@property (nonatomic) CGFloat zeroLineHeight;
 @property (nonatomic) CGFloat height;
-@property (nonatomic) CGFloat barWidth;
-@property (nonatomic) CGFloat barPaddingRight;
 
 // Date
 @property (nonatomic) NSDateComponents *dateComponents;
@@ -33,7 +31,6 @@
 
 // Line properties
 @property (nonatomic) NSInteger markerLineInterval;
-@property (nonatomic) CGFloat markerLineHeight;
 // Padding
 @property (nonatomic) NSInteger positivePadding;
 @property (nonatomic) NSInteger negativePadding;

@@ -10,6 +10,7 @@
 #import "MWChart.h"
 #import "MWChartBar.h"
 #import "MWChartLine.h"
+#import "MWConstants.h"
 #import <float.h>
 #define EPSILON 0.0001
 
@@ -21,7 +22,7 @@
 
 - (void)testInitialiser
 {
-    NSArray *dataArray = @[[MWData createDataWithValue:10]];
+    NSArray *dataArray = @[[MWData dataWithValue:10 goal:0 date:nil]];
     MWDataContainer *dataContainer = [[MWDataContainer alloc] initWithDataArray:dataArray];
     MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100];
     [chart createChart];
@@ -31,8 +32,8 @@
 
 - (void)testZeroValues
 {
-    NSArray *dataArray = @[[MWData dataWithValue:0],
-                           [MWData dataWithValue:0],];
+    NSArray *dataArray = @[[MWData dataWithValue:0 goal:0 date:nil],
+                           [MWData dataWithValue:0 goal:0 date:nil],];
     MWDataContainer *dataContainer = [[MWDataContainer alloc] initWithDataArray:dataArray];
     MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100];
     [chart createChart];
@@ -48,11 +49,11 @@
 - (void)testBarHeightPositive
 {
     NSInteger max = 100;
-    NSArray *dataArray = @[[MWData createDataWithValue:0],
-                           [MWData createDataWithValue:10],
-                           [MWData createDataWithValue:20],
-                           [MWData createDataWithValue:25],
-                           [MWData createDataWithValue:max]];
+    NSArray *dataArray = @[[MWData dataWithValue:0 goal:0 date:nil],
+                           [MWData dataWithValue:10 goal:0 date:nil],
+                           [MWData dataWithValue:20 goal:0 date:nil],
+                           [MWData dataWithValue:25 goal:0 date:nil],
+                           [MWData dataWithValue:max goal:0 date:nil]];
     MWDataContainer *dataContainer = [[MWDataContainer alloc] initWithDataArray:dataArray];
     MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100];
     [chart createChart];
@@ -84,11 +85,11 @@
 - (void)testBarHeightNegative
 {
     NSInteger max = -100;
-    NSArray *dataArray = @[[MWData createDataWithValue:0],
-                           [MWData createDataWithValue:-10],
-                           [MWData createDataWithValue:-20],
-                           [MWData createDataWithValue:-25],
-                           [MWData createDataWithValue:max]];
+    NSArray *dataArray = @[[MWData dataWithValue:0 goal:0 date:nil],
+                           [MWData dataWithValue:-10 goal:0 date:nil],
+                           [MWData dataWithValue:-20 goal:0 date:nil],
+                           [MWData dataWithValue:-25 goal:0 date:nil],
+                           [MWData dataWithValue:max goal:0 date:nil]];
     MWDataContainer *dataContainer = [[MWDataContainer alloc] initWithDataArray:dataArray];
     MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100];
     [chart createChart];
@@ -110,20 +111,20 @@
     XCTAssertEqualWithAccuracy(((MWChartBar *)chart.bars[4]).size.height, height4, FLT_EPSILON);
     
     // Check the position
-    XCTAssertEqualWithAccuracy(((MWChartBar *)chart.bars[0]).position.y, chart.zeroLineHeight, FLT_EPSILON);
-    XCTAssertEqualWithAccuracy(((MWChartBar *)chart.bars[1]).position.y, chart.zeroLineHeight, FLT_EPSILON);
-    XCTAssertEqualWithAccuracy(((MWChartBar *)chart.bars[2]).position.y, chart.zeroLineHeight, FLT_EPSILON);
-    XCTAssertEqualWithAccuracy(((MWChartBar *)chart.bars[3]).position.y, chart.zeroLineHeight, FLT_EPSILON);
-    XCTAssertEqualWithAccuracy(((MWChartBar *)chart.bars[4]).position.y, chart.zeroLineHeight, FLT_EPSILON);
+    XCTAssertEqualWithAccuracy(((MWChartBar *)chart.bars[0]).position.y, [MWConstants zeroMarkerLineHeight], FLT_EPSILON);
+    XCTAssertEqualWithAccuracy(((MWChartBar *)chart.bars[1]).position.y, [MWConstants zeroMarkerLineHeight], FLT_EPSILON);
+    XCTAssertEqualWithAccuracy(((MWChartBar *)chart.bars[2]).position.y, [MWConstants zeroMarkerLineHeight], FLT_EPSILON);
+    XCTAssertEqualWithAccuracy(((MWChartBar *)chart.bars[3]).position.y, [MWConstants zeroMarkerLineHeight], FLT_EPSILON);
+    XCTAssertEqualWithAccuracy(((MWChartBar *)chart.bars[4]).position.y, [MWConstants zeroMarkerLineHeight], FLT_EPSILON);
 }
 
 - (void)testBarHeightMixed
 {
-    NSArray *dataArray = @[[MWData createDataWithValue:0],
-                           [MWData createDataWithValue:5],
-                           [MWData createDataWithValue:-10],
-                           [MWData createDataWithValue:-25],
-                           [MWData createDataWithValue:75]];
+    NSArray *dataArray = @[[MWData dataWithValue:0 goal:0 date:nil],
+                           [MWData dataWithValue:5 goal:0 date:nil],
+                           [MWData dataWithValue:-10 goal:0 date:nil],
+                           [MWData dataWithValue:-25 goal:0 date:nil],
+                           [MWData dataWithValue:75 goal:0 date:nil]];
     MWDataContainer *dataContainer = [[MWDataContainer alloc] initWithDataArray:dataArray];
     MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100];
     [chart createChart];
@@ -152,16 +153,16 @@
     // Check the position
     XCTAssertEqualWithAccuracy(((MWChartBar *)chart.bars[0]).position.y, positiveHeight - height0, EPSILON);
     XCTAssertEqualWithAccuracy(((MWChartBar *)chart.bars[1]).position.y, positiveHeight - height1, EPSILON);
-    XCTAssertEqualWithAccuracy(((MWChartBar *)chart.bars[2]).position.y, positiveHeight + chart.zeroLineHeight, EPSILON);
-    XCTAssertEqualWithAccuracy(((MWChartBar *)chart.bars[3]).position.y, positiveHeight + chart.zeroLineHeight, EPSILON);
+    XCTAssertEqualWithAccuracy(((MWChartBar *)chart.bars[2]).position.y, positiveHeight + [MWConstants zeroMarkerLineHeight], EPSILON);
+    XCTAssertEqualWithAccuracy(((MWChartBar *)chart.bars[3]).position.y, positiveHeight + [MWConstants zeroMarkerLineHeight], EPSILON);
     XCTAssertEqualWithAccuracy(((MWChartBar *)chart.bars[4]).position.y, positiveHeight - height4, EPSILON);
 }
 
 - (void)testPaddingPositive
 {
-    NSArray *dataArray = @[[MWData createDataWithValue:0],
-                           [MWData createDataWithValue:10],
-                           [MWData createDataWithValue:75]];
+    NSArray *dataArray = @[[MWData dataWithValue:0 goal:0 date:nil],
+                           [MWData dataWithValue:10 goal:0 date:nil],
+                           [MWData dataWithValue:75 goal:0 date:nil]];
     MWDataContainer *dataContainer = [[MWDataContainer alloc] initWithDataArray:dataArray];
     MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100];
     [chart createChart];
@@ -175,10 +176,10 @@
 
 - (void)testPaddingNegative
 {
-    NSArray *dataArray = @[[MWData createDataWithValue:0],
-                           [MWData createDataWithValue:-10],
-                           [MWData createDataWithValue:-17],
-                           [MWData createDataWithValue:-72]];
+    NSArray *dataArray = @[[MWData dataWithValue:0 goal:0 date:nil],
+                           [MWData dataWithValue:-10 goal:0 date:nil],
+                           [MWData dataWithValue:-17 goal:0 date:nil],
+                           [MWData dataWithValue:-72 goal:0 date:nil]];
     MWDataContainer *dataContainer = [[MWDataContainer alloc] initWithDataArray:dataArray];
     MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100];
     [chart createChart];
@@ -192,12 +193,12 @@
 
 - (void)testPaddingMixed
 {
-    NSArray *dataArray = @[[MWData createDataWithValue:0],
-                           [MWData createDataWithValue:-10],
-                           [MWData createDataWithValue:-17],
-                           [MWData createDataWithValue:17],
-                           [MWData createDataWithValue:28],
-                           [MWData createDataWithValue:-73]];
+    NSArray *dataArray = @[[MWData dataWithValue:0 goal:0 date:nil],
+                           [MWData dataWithValue:-10 goal:0 date:nil],
+                           [MWData dataWithValue:-17 goal:0 date:nil],
+                           [MWData dataWithValue:17 goal:0 date:nil],
+                           [MWData dataWithValue:28 goal:0 date:nil],
+                           [MWData dataWithValue:-73 goal:0 date:nil]];
     MWDataContainer *dataContainer = [[MWDataContainer alloc] initWithDataArray:dataArray];
     MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100];
     [chart createChart];
@@ -215,10 +216,10 @@
 
 - (void)testMarkerLineCountPositive
 {
-    NSArray *dataArray = @[[MWData createDataWithValue:0],
-                           [MWData createDataWithValue:10],
-                           [MWData createDataWithValue:17],
-                           [MWData createDataWithValue:72]];
+    NSArray *dataArray = @[[MWData dataWithValue:0 goal:0 date:nil],
+                           [MWData dataWithValue:10 goal:0 date:nil],
+                           [MWData dataWithValue:17 goal:0 date:nil],
+                           [MWData dataWithValue:72 goal:0 date:nil]];
     MWDataContainer *dataContainer = [[MWDataContainer alloc] initWithDataArray:dataArray];
     MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100];
     [chart createChart];
@@ -231,10 +232,10 @@
 
 - (void)testMarkerLineCountNegative
 {
-    NSArray *dataArray = @[[MWData createDataWithValue:0],
-                           [MWData createDataWithValue:-10],
-                           [MWData createDataWithValue:-17],
-                           [MWData createDataWithValue:-59]];
+    NSArray *dataArray = @[[MWData dataWithValue:0 goal:0 date:nil],
+                           [MWData dataWithValue:-10 goal:0 date:nil],
+                           [MWData dataWithValue:-17 goal:0 date:nil],
+                           [MWData dataWithValue:-59 goal:0 date:nil]];
     MWDataContainer *dataContainer = [[MWDataContainer alloc] initWithDataArray:dataArray];
     MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100];
     [chart createChart];
@@ -247,11 +248,11 @@
 
 - (void)testMarkerLineCountMixed
 {
-    NSArray *dataArray = @[[MWData createDataWithValue:0],
-                           [MWData createDataWithValue:10],
-                           [MWData createDataWithValue:17],
-                           [MWData createDataWithValue:-23],
-                           [MWData createDataWithValue:72]];
+    NSArray *dataArray = @[[MWData dataWithValue:0 goal:0 date:nil],
+                           [MWData dataWithValue:10 goal:0 date:nil],
+                           [MWData dataWithValue:17 goal:0 date:nil],
+                           [MWData dataWithValue:-23 goal:0 date:nil],
+                           [MWData dataWithValue:72 goal:0 date:nil]];
     MWDataContainer *dataContainer = [[MWDataContainer alloc] initWithDataArray:dataArray];
     MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100];
     [chart createChart];

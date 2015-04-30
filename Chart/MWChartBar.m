@@ -32,8 +32,8 @@
         
         // Bar label
         _labelString = title;
-        _labelFontName = BAR_LABEL_FONT_NAME;
-        _labelFontSize = BAR_LABEL_FONT_SIZE;
+        _labelFontName = [MWConstants barLabelFontName];
+        _labelFontSize = [MWConstants barLabelFontSize];
         self.labelColor = [MWConstants barLabelFontColor];
         // Update the label attributed string and it's bounding size
         [self updateLabelString];
@@ -118,7 +118,8 @@
 
 + (CGFloat)labelHeight
 {
-    UIFont *font = [UIFont fontWithName:BAR_LABEL_FONT_NAME size:BAR_LABEL_FONT_SIZE];
+    UIFont *font = [UIFont fontWithName:[MWConstants barLabelFontName]
+                                   size:[MWConstants barLabelFontSize]];
     
     NSDictionary *attributes = @{NSFontAttributeName: font};
     

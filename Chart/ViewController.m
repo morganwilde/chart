@@ -39,9 +39,9 @@
     NSArray *dataArray = @[[MWData dataWithValue:10 goal:80 date:[date dateByAddingTimeInterval:0*day]],
                            [MWData dataWithValue:20 goal:80 date:[date dateByAddingTimeInterval:1*day]],
                            [MWData dataWithValue:30 goal:60 date:[date dateByAddingTimeInterval:2*day]],
-                           [MWData dataWithValue:40 goal:60 date:[date dateByAddingTimeInterval:3*day]],
+                           [MWData dataWithValue:-40 goal:60 date:[date dateByAddingTimeInterval:3*day]],
                            [MWData dataWithValue:40 goal:60 date:[date dateByAddingTimeInterval:4*day]],
-                           [MWData dataWithValue:-40 goal:60 date:[date dateByAddingTimeInterval:5*day]],
+                           [MWData dataWithValue:40 goal:60 date:[date dateByAddingTimeInterval:5*day]],
                            [MWData dataWithValue:108 goal:60 date:[date dateByAddingTimeInterval:6*day]],
                            [MWData dataWithValue:10 goal:60 date:[date dateByAddingTimeInterval:7*day]],
                            [MWData dataWithValue:30 goal:60 date:[date dateByAddingTimeInterval:8*day]],
@@ -70,9 +70,13 @@
     
     // Creates the view and puts it on the screen
     MWDataContainer *dataContainer = [[MWDataContainer alloc] initWithDataArray:dataArray];
-    MWChart *chart = [[MWChart alloc] initWithDataContainer: dataContainer height:CHART_HEIGHT dateComponents:dateComponentNow];
+    MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer
+                                                     height:[MWConstants chartHeight]
+                                             dateComponents:dateComponentNow];
     [chart createChart];
-    MWChart *chart2 = [[MWChart alloc] initWithDataContainer: dataContainer height:CHART_HEIGHT dateComponents:dateComponentsNext];
+    MWChart *chart2 = [[MWChart alloc] initWithDataContainer:dataContainer
+                                                      height:[MWConstants chartHeight]
+                                              dateComponents:dateComponentsNext];
     [chart2 createChart];
     
     CGPoint chartPosition = CGPointMake(0, 0);
@@ -81,7 +85,6 @@
     CGPoint chart2Position = CGPointMake(self.chartContainerView.frame.origin.x + self.chartContainerView.frame.size.width, 0);
     
     self.chartContainerView2 = [[MWChartContainerView alloc] initWithPosition:chart2Position chart:chart2];
-    NSLog(@"rect: %@", NSStringFromCGRect(self.chartContainerView2.frame));
     
     
     CGRect scrollViewFrame = CGRectMake(0,
@@ -97,17 +100,6 @@
     [scrollView addSubview:self.chartContainerView2];
     
     [self.view addSubview:scrollView];
-}
-
-- (NSArray *)createDataArrayFromNumberArray:(NSArray *)array
-{
-    NSMutableArray *dataArray = [NSMutableArray array];
-    
-    for (NSNumber *number in array) {
-        [dataArray addObject:[MWData createDataWithValue:[number integerValue]]];
-    }
-    
-    return dataArray;
 }
 
 # pragma mark - ScrollView delegate methods

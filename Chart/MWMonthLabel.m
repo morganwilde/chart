@@ -69,7 +69,8 @@
 }
 + (NSDictionary *)monthAttributes
 {
-    UIFont *font = [UIFont fontWithName:@"Comfortaa-Bold" size:11];
+    UIFont *font = [UIFont fontWithName:[MWConstants monthLabelFontName]
+                                   size:[MWConstants monthLabelFontSize]];
     NSDictionary *attributes = @{NSFontAttributeName: font,
                                  NSForegroundColorAttributeName: [MWConstants monthLabelForegroundColor]};
     

@@ -11,8 +11,6 @@
 
 @interface MWChartView : UIView
 
-@property (nonatomic) UIColor *chartBackgroundColor;
-
 - (instancetype)initWithPosition:(CGPoint)position chart:(MWChart *)chart;
 
 @end
