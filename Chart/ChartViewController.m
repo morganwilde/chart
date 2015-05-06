@@ -6,20 +6,20 @@
 //  Copyright (c) 2015 Morgan Wilde. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "ChartViewController.h"
 #import "MWChartView.h"
 #import "MWChartContainerView.h"
 
 #import "MWConstants.h"
 
-@interface ViewController ()
+@interface ChartViewController ()
 
 @property (nonatomic) MWChartContainerView *chartContainerView;
 @property (nonatomic) MWChartContainerView *chartContainerView2;
 
 @end
 
-@implementation ViewController
+@implementation ChartViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,12 +36,12 @@
     NSDate *date = [[NSCalendar currentCalendar] dateFromComponents:dateComponents];
     NSTimeInterval day = 60 * 60 * 24;
     
-    NSArray *dataArray = @[[MWData dataWithValue:10 goal:80 date:[date dateByAddingTimeInterval:0*day]],
-                           [MWData dataWithValue:20 goal:80 date:[date dateByAddingTimeInterval:1*day]],
-                           [MWData dataWithValue:30 goal:60 date:[date dateByAddingTimeInterval:2*day]],
-                           [MWData dataWithValue:-40 goal:60 date:[date dateByAddingTimeInterval:3*day]],
-                           [MWData dataWithValue:40 goal:60 date:[date dateByAddingTimeInterval:4*day]],
-                           [MWData dataWithValue:40 goal:60 date:[date dateByAddingTimeInterval:5*day]],
+    NSArray *dataArray = @[[MWData dataWithValue:10 goal:20 date:[date dateByAddingTimeInterval:0*day]],
+                           [MWData dataWithValue:20 goal:30 date:[date dateByAddingTimeInterval:1*day]],
+                           [MWData dataWithValue:30 goal:20 date:[date dateByAddingTimeInterval:2*day]],
+                           [MWData dataWithValue:-40 goal:20 date:[date dateByAddingTimeInterval:3*day]],
+                           [MWData dataWithValue:40 goal:70 date:[date dateByAddingTimeInterval:4*day]],
+                           [MWData dataWithValue:40 goal:70 date:[date dateByAddingTimeInterval:5*day]],
                            [MWData dataWithValue:108 goal:60 date:[date dateByAddingTimeInterval:6*day]],
                            [MWData dataWithValue:10 goal:60 date:[date dateByAddingTimeInterval:7*day]],
                            [MWData dataWithValue:30 goal:60 date:[date dateByAddingTimeInterval:8*day]],

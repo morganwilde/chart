@@ -7,7 +7,7 @@
 //
 
 #import "MWChartView.h"
-#import "MWChartLine.h"
+#import "MWChartMarkerLine.h"
 #import "MWChartBar.h"
 #import "MWChartGoalLine.h"
 #import "MWDayLabel.h"
@@ -42,120 +42,85 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    // Draw the zero line
+    [self drawZeroMarkerLineSegment];
+    [self drawMarkerLinesSegment];
+    [self drawBarsSegment];
+    [self drawGoalLinesSegment];
+    [self drawDayLabelsSegment];
+}
+
+- (void)drawZeroMarkerLineSegment
+{
     [[MWConstants zeroMarkerLineFillColor] setFill];
     UIBezierPath *zeroLinePath = [UIBezierPath bezierPathWithRect:[self.chart zeroLineFrame]];
     [zeroLinePath fill];
+}
+
+- (void)drawMarkerLinesSegment
+{
+    [[MWConstants markerLineFillColor] setFill];
     
-    // Draw the marker lines
-    NSMutableArray *goalLinePaths = [NSMutableArray array];
-    
-    for (MWChartLine *markerLine in self.chart.markerLines) {
-        CGRect markerLineRect = [markerLine frame];
-        [[MWConstants markerLineFillColor] setFill];
-        
-        if ([markerLine.goalLines count] > 0) {
-            CGFloat positionXCurrent = 0;
-            
-            for (MWChartGoalLine *goalLine in markerLine.goalLines) {
-                // Marker line
-                CGRect rect = CGRectMake(positionXCurrent,
-                                         markerLineRect.origin.y,
-                                         goalLine.positionX - positionXCurrent,
-                                         markerLineRect.size.height);
-                positionXCurrent = goalLine.positionX + goalLine.width;
-                [[MWConstants markerLineFillColor] setFill];
-                UIBezierPath *path = [UIBezierPath bezierPathWithRect:rect];
+    for (MWChartMarkerLine *markerLine in self.chart.markerLines) {
+        if ([markerLine.markerLineSegments count] > 0) {
+            for (NSValue *frameValue in markerLine.markerLineSegments) {
+                UIBezierPath *path = [UIBezierPath bezierPathWithRect:[frameValue CGRectValue]];
                 [path fill];
-                
-                // Goal line
-                CGFloat lineStartPointX = rect.origin.x + rect.size.width;
-                CGFloat lineEndPointX = rect.origin.x + rect.size.width + goalLine.width;
-                if ((goalLine.to - goalLine.from) >= 1) {
-                    lineEndPointX -= [MWConstants barPadding]/2;
-                    positionXCurrent -= [MWConstants barPadding]/2;
-                }
-                
-                // Goal line end points
-                CGSize goalLinePointSize = [MWConstants goalLineEndCapSize];
-                lineStartPointX -= goalLinePointSize.width/2;
-                lineEndPointX += goalLinePointSize.width/2;
-                CGRect goalLineStartRect = CGRectMake(lineStartPointX,
-                                                      rect.origin.y - goalLinePointSize.height/2,
-                                                      goalLinePointSize.width,
-                                                      goalLinePointSize.height);
-                CGRect goalLineEndRect = CGRectMake(lineEndPointX - goalLinePointSize.width,
-                                                    rect.origin.y - goalLinePointSize.height/2,
-                                                    goalLinePointSize.width,
-                                                    goalLinePointSize.height);
-                
-                UIBezierPath *goalLineStart = [UIBezierPath bezierPathWithOvalInRect:goalLineStartRect];
-                UIBezierPath *goalLineEnd = [UIBezierPath bezierPathWithOvalInRect:goalLineEndRect];
-                [goalLinePaths addObject:goalLineStart];
-                [goalLinePaths addObject:goalLineEnd];
-                
-                // Goal line
-                lineStartPointX += goalLinePointSize.width;
-                lineEndPointX -= goalLinePointSize.width;
-                
-                UIBezierPath *goalPath = [UIBezierPath bezierPath];
-                [goalPath moveToPoint:CGPointMake(lineStartPointX, rect.origin.y)];
-                [goalPath addLineToPoint:CGPointMake(lineEndPointX, rect.origin.y)];
-                goalPath.lineWidth = 1;
-                CGFloat dashPattern[] = {6, 2};
-                [goalPath setLineDash:dashPattern count:2 phase:0];
-                
-                [goalLinePaths addObject:goalPath];
             }
-            CGRect rect = CGRectMake(positionXCurrent,
-                                     markerLineRect.origin.y,
-                                     markerLineRect.size.width - positionXCurrent,
-                                     markerLineRect.size.height);
-            [[MWConstants markerLineFillColor] setFill];
-            UIBezierPath *path = [UIBezierPath bezierPathWithRect:rect];
-            [path fill];
-            
         } else {
-            UIBezierPath *path = [UIBezierPath bezierPathWithRect:markerLineRect];
+            UIBezierPath *path = [UIBezierPath bezierPathWithRect:[markerLine frame]];
             [path fill];
         }
-        
     }
-    
-    // Draw the bars
+}
+
+- (void)drawBarsSegment
+{
     for (MWChartBar *bar in self.chart.bars) {
         [bar.fillColor setFill];
         
         UIBezierPath *path = [UIBezierPath bezierPathWithRect:[bar frame]];
         [path fill];
         
-//        // DEBUG
-//        [[UIColor greenColor] setFill];
-//        UIBezierPath *labelPath = [UIBezierPath bezierPathWithRect:[bar labelFrame]];
-//        [labelPath fill];
-//        // /DEBUG
+        //        // DEBUG
+        //        [[UIColor greenColor] setFill];
+        //        UIBezierPath *labelPath = [UIBezierPath bezierPathWithRect:[bar labelFrame]];
+        //        [labelPath fill];
+        //        // /DEBUG
         
         // TODO: fix this for a hundred
         [bar labelFrame];
         [bar.labelAttributedString drawInRect:[bar labelFrame]];
     }
+}
+
+- (void)drawGoalLinesSegment
+{
+    [[MWConstants goalLineFillColor] setFill];
     
-    // Draw goal lines
-    NSInteger index = 0;
-    for (UIBezierPath *goalPath in goalLinePaths) {
-        [[MWConstants goalLineFillColor] setFill];
-        [[MWConstants goalLineStrokeColor] setStroke];
-        
-        if (index % 3 == 0) {
-            [goalPath fill];
+    for (MWChartMarkerLine *markerLine in self.chart.markerLines) {
+        for (MWChartGoalLine *goalLine in markerLine.goalLines) {
+            // Create the shapes
+            UIBezierPath *goalLineStart = [UIBezierPath bezierPathWithOvalInRect:goalLine.startCapFrame];
+            UIBezierPath *goalLineEnd = [UIBezierPath bezierPathWithOvalInRect:goalLine.endCapFrame];
+            UIBezierPath *goalPath = [UIBezierPath bezierPath];
+            [goalPath moveToPoint:goalLine.startPoint];
+            [goalPath addLineToPoint:goalLine.endPoint];
+            [goalPath setLineDash:goalLine.dashPattern count:2 phase:0];
+            goalPath.lineWidth = 1;
+            
+            // Fill and stroke them
+            [[MWConstants goalLineStrokeColor] setStroke];
+            [goalPath stroke];
+            [[MWConstants goalLineStartCapFillColor] setFill];
+            [goalLineStart fill];
+            [[MWConstants goalLineEndCapStrokeColor] setStroke];
+            [goalLineEnd stroke];
         }
-        [goalPath stroke];
-        
-        
-        index++;
     }
-    
-    // Draw day labels
+}
+
+- (void)drawDayLabelsSegment
+{
     for (MWDayLabel *dayLabel in self.chart.dayLabels) {
         [dayLabel.weekdayString drawInRect:[dayLabel weekdayFrame]];
         [dayLabel.dayString drawInRect:[dayLabel dayFrame]];

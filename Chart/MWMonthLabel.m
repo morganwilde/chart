@@ -28,7 +28,7 @@
         self.chartDateComponents = chartDateComponents;
         self.month = self.chartDateComponents.month;
         
-        self.labelText = [NSString stringWithFormat:@"%@ %ld", self.monthText, self.chartDateComponents.year];
+        self.labelText = [NSString stringWithFormat:@"%@ %ld", self.monthText, (long)self.chartDateComponents.year];
         self.labelString = [[NSAttributedString alloc] initWithString:self.labelText attributes:[MWMonthLabel monthAttributes]];
     }
     return self;

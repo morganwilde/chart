@@ -6,12 +6,12 @@
 //  Copyright (c) 2015 Morgan Wilde. All rights reserved.
 //
 
-#import "MWChartLine.h"
+#import "MWChartMarkerLine.h"
 #import "MWChartGoalLine.h"
 
 #import "MWConstants.h"
 
-@implementation MWChartLine
+@implementation MWChartMarkerLine
 
 - (instancetype)initWithSize:(CGSize)size position:(CGPoint)position
 {
@@ -20,6 +20,7 @@
         self.size = size;
         self.position = position;
         self.goalLines = [NSMutableArray array];
+        self.markerLineSegments = [NSMutableArray array];
     }
     return self;
 }
@@ -34,6 +35,11 @@
 - (void)addGoalLine:(MWChartGoalLine *)goalLine
 {
     [self.goalLines addObject:goalLine];
+}
+
+- (void)addMarkerLineSegment:(CGRect)frame
+{
+    [self.markerLineSegments addObject:[NSValue valueWithCGRect:frame]];
 }
 
 @end

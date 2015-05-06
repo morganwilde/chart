@@ -41,26 +41,8 @@
     return self;
 }
 
-- (instancetype)initWithDataContainer:(MWDataContainer *)dataContainer height:(CGFloat)height
-{
-    NSDateComponents *dateComponentNow = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
-    return [self initWithDataContainer:dataContainer height:height dateComponents:dateComponentNow];
-}
-
-- (instancetype)initWithDataContainer:(MWDataContainer *)dataContainer
-{
-    NSDateComponents *dateComponentNow = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
-    return [self initWithDataContainer:dataContainer height:100 dateComponents:dateComponentNow];
-}
-
 - (void)analyseData
 {
-//    if (self.dataContainer.maxValue > 0) {
-//        self.height -= self.barLabelHeight;
-//    }
-//    if (self.dataContainer.minValue < 0) {
-//        self.height -= self.barLabelHeight;
-//    }
     // Find how much does a bar label take up in vertical size
     self.barLabelPadding = round((self.barLabelHeight / self.height) * self.dataContainer.valueRange);
     
@@ -193,7 +175,7 @@
         CGSize size = CGSizeMake([self width], [MWConstants markerLineHeight]);
         CGPoint position = CGPointMake(0, paddingYWithInset);
         
-        MWChartLine *line = [[MWChartLine alloc] initWithSize:size position:position];
+        MWChartMarkerLine *line = [[MWChartMarkerLine alloc] initWithSize:size position:position];
         line.level = self.positiveAbsoluteTotal - lineNumber * self.markerLineInterval;
         
         if (lineNumber != zeroLineNumber) {
@@ -234,6 +216,28 @@
     [[self markerLineAtLevel:currentGoal] addGoalLine:goalLine];
 }
 
+- (void)createMarkerLineSegments
+{
+    for (MWChartMarkerLine *markerLine in self.markerLines) {
+        if ([markerLine.goalLines count] > 0) {
+            CGFloat positionXCurrent = 0;
+            for (MWChartGoalLine *goalLine in markerLine.goalLines) {
+                CGRect rect = CGRectMake(positionXCurrent,
+                                         markerLine.position.y,
+                                         goalLine.positionX - positionXCurrent,
+                                         markerLine.size.height);
+                [markerLine addMarkerLineSegment:rect];
+                positionXCurrent = goalLine.positionX + goalLine.width - [MWConstants barPadding]/2;
+            }
+            CGRect rect = CGRectMake(positionXCurrent,
+                                     markerLine.position.y,
+                                     markerLine.size.width - positionXCurrent,
+                                     markerLine.size.height);
+            [markerLine addMarkerLineSegment:rect];
+        }
+    }
+}
+
 - (void)createDayLabels
 {
     NSMutableArray *array = [NSMutableArray array];
@@ -265,6 +269,7 @@
     [self createBars];
     [self createMarkerLines];
     [self createGoalLines];
+    [self createMarkerLineSegments];
     [self createDayLabels];
 }
 
@@ -306,7 +311,7 @@
 - (NSInteger)markerLineIndexByLevel:(NSInteger)level
 {
     NSInteger index = 0;
-    for (MWChartLine *markerLine in self.markerLines) {
+    for (MWChartMarkerLine *markerLine in self.markerLines) {
         if (markerLine.level == level) {
             return index;
         }
@@ -315,9 +320,9 @@
     return NSIntegerMin;
 }
 
-- (MWChartLine *)markerLineAtLevel:(NSInteger)level
+- (MWChartMarkerLine *)markerLineAtLevel:(NSInteger)level
 {
-    for (MWChartLine *markerLine in self.markerLines) {
+    for (MWChartMarkerLine *markerLine in self.markerLines) {
         if (markerLine.level == level) {
             return markerLine;
         }

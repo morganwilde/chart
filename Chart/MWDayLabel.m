@@ -112,7 +112,7 @@
 - (NSString *)dayText
 {
     if (!_dayText) {
-        _dayText = [NSString stringWithFormat:@"%ld", self.dayNumber];
+        _dayText = [NSString stringWithFormat:@"%ld", (long)self.dayNumber];
     }
     return _dayText;
 }

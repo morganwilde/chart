@@ -10,7 +10,7 @@
 		2E0F617E1AE79F9700E1D3A3 /* MWChartGoalLineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0F617D1AE79F9700E1D3A3 /* MWChartGoalLineTests.m */; };
 		2E2CA4D21AE40D2A00E3FAE6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2CA4D11AE40D2A00E3FAE6 /* main.m */; };
 		2E2CA4D51AE40D2A00E3FAE6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2CA4D41AE40D2A00E3FAE6 /* AppDelegate.m */; };
-		2E2CA4D81AE40D2A00E3FAE6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2CA4D71AE40D2A00E3FAE6 /* ViewController.m */; };
+		2E2CA4D81AE40D2A00E3FAE6 /* ChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2CA4D71AE40D2A00E3FAE6 /* ChartViewController.m */; };
 		2E2CA4DB1AE40D2A00E3FAE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E2CA4D91AE40D2A00E3FAE6 /* Main.storyboard */; };
 		2E2CA4DD1AE40D2A00E3FAE6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E2CA4DC1AE40D2A00E3FAE6 /* Images.xcassets */; };
 		2E2CA4E01AE40D2A00E3FAE6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E2CA4DE1AE40D2A00E3FAE6 /* LaunchScreen.xib */; };
@@ -26,13 +26,20 @@
 		2E2CA50F1AE542D700E3FAE6 /* Comfortaa-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E2CA50C1AE542A700E3FAE6 /* Comfortaa-Light.ttf */; };
 		2E2CA5101AE542D700E3FAE6 /* Comfortaa-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E2CA50D1AE542A700E3FAE6 /* Comfortaa-Regular.ttf */; };
 		2E2CA5141AE543D000E3FAE6 /* MWChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2CA5131AE543D000E3FAE6 /* MWChartView.m */; };
-		2E3F5EAE1AE5A5A20039C52B /* MWChartLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3F5EAD1AE5A5A20039C52B /* MWChartLine.m */; };
+		2E3F5EAE1AE5A5A20039C52B /* MWChartMarkerLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3F5EAD1AE5A5A20039C52B /* MWChartMarkerLine.m */; };
 		2E3F5EB11AE6B6460039C52B /* MWChartGoalLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3F5EB01AE6B6460039C52B /* MWChartGoalLine.m */; };
+		2E59F4DE1AF7B2B6006776B0 /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E59F4DC1AF7B2B6006776B0 /* Data.xcdatamodeld */; };
 		2E6C91521AED493E0022CFD5 /* MWDayLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C91511AED493E0022CFD5 /* MWDayLabel.m */; };
 		2E6C91551AED62680022CFD5 /* MWMonthLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C91541AED62680022CFD5 /* MWMonthLabel.m */; };
 		2E6C91581AED7E030022CFD5 /* MWChartContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C91571AED7E030022CFD5 /* MWChartContainerView.m */; };
 		2E6C915B1AED80500022CFD5 /* MWChartHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C915A1AED80500022CFD5 /* MWChartHeaderView.m */; };
+		2E9F23581AF7928000F43636 /* DataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F23571AF7928000F43636 /* DataViewController.m */; };
 		2E9FA1911AF17E9E00B6778B /* MWConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9FA1901AF17E9E00B6778B /* MWConstants.m */; };
+		2EBD70CD1AF95B5F0068A67D /* Data.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBD70CC1AF95B5F0068A67D /* Data.m */; };
+		2EBD70D01AF963190068A67D /* DataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBD70CF1AF963190068A67D /* DataTableViewCell.m */; };
+		2EBD70D61AF970A00068A67D /* Data+DataInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBD70D51AF970A00068A67D /* Data+DataInterface.m */; };
+		2ED713D71AFA2FAA00B8EE67 /* TextFieldEnhanced.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED713D61AFA2FAA00B8EE67 /* TextFieldEnhanced.m */; };
+		2ED713DA1AFA34DE00B8EE67 /* TableViewEnhanced.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED713D91AFA34DE00B8EE67 /* TableViewEnhanced.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +59,8 @@
 		2E2CA4D11AE40D2A00E3FAE6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2E2CA4D31AE40D2A00E3FAE6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2E2CA4D41AE40D2A00E3FAE6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2E2CA4D61AE40D2A00E3FAE6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2E2CA4D71AE40D2A00E3FAE6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2E2CA4D61AE40D2A00E3FAE6 /* ChartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartViewController.h; sourceTree = "<group>"; };
+		2E2CA4D71AE40D2A00E3FAE6 /* ChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartViewController.m; sourceTree = "<group>"; };
 		2E2CA4DA1AE40D2A00E3FAE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2E2CA4DC1AE40D2A00E3FAE6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2E2CA4DF1AE40D2A00E3FAE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -76,10 +83,11 @@
 		2E2CA50D1AE542A700E3FAE6 /* Comfortaa-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-Regular.ttf"; sourceTree = "<group>"; };
 		2E2CA5121AE543D000E3FAE6 /* MWChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWChartView.h; sourceTree = "<group>"; };
 		2E2CA5131AE543D000E3FAE6 /* MWChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWChartView.m; sourceTree = "<group>"; };
-		2E3F5EAC1AE5A5A20039C52B /* MWChartLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWChartLine.h; sourceTree = "<group>"; };
-		2E3F5EAD1AE5A5A20039C52B /* MWChartLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWChartLine.m; sourceTree = "<group>"; };
+		2E3F5EAC1AE5A5A20039C52B /* MWChartMarkerLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWChartMarkerLine.h; sourceTree = "<group>"; };
+		2E3F5EAD1AE5A5A20039C52B /* MWChartMarkerLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWChartMarkerLine.m; sourceTree = "<group>"; };
 		2E3F5EAF1AE6B6460039C52B /* MWChartGoalLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWChartGoalLine.h; sourceTree = "<group>"; };
 		2E3F5EB01AE6B6460039C52B /* MWChartGoalLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWChartGoalLine.m; sourceTree = "<group>"; };
+		2E59F4DD1AF7B2B6006776B0 /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
 		2E6C91501AED493E0022CFD5 /* MWDayLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWDayLabel.h; sourceTree = "<group>"; };
 		2E6C91511AED493E0022CFD5 /* MWDayLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWDayLabel.m; sourceTree = "<group>"; };
 		2E6C91531AED62680022CFD5 /* MWMonthLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWMonthLabel.h; sourceTree = "<group>"; };
@@ -88,8 +96,20 @@
 		2E6C91571AED7E030022CFD5 /* MWChartContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWChartContainerView.m; sourceTree = "<group>"; };
 		2E6C91591AED80500022CFD5 /* MWChartHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWChartHeaderView.h; sourceTree = "<group>"; };
 		2E6C915A1AED80500022CFD5 /* MWChartHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWChartHeaderView.m; sourceTree = "<group>"; };
+		2E9F23561AF7928000F43636 /* DataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataViewController.h; sourceTree = "<group>"; };
+		2E9F23571AF7928000F43636 /* DataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataViewController.m; sourceTree = "<group>"; };
 		2E9FA18F1AF17E9E00B6778B /* MWConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWConstants.h; sourceTree = "<group>"; };
 		2E9FA1901AF17E9E00B6778B /* MWConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWConstants.m; sourceTree = "<group>"; };
+		2EBD70CB1AF95B5F0068A67D /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
+		2EBD70CC1AF95B5F0068A67D /* Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Data.m; sourceTree = "<group>"; };
+		2EBD70CE1AF963190068A67D /* DataTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataTableViewCell.h; sourceTree = "<group>"; };
+		2EBD70CF1AF963190068A67D /* DataTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataTableViewCell.m; sourceTree = "<group>"; };
+		2EBD70D41AF970A00068A67D /* Data+DataInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Data+DataInterface.h"; sourceTree = "<group>"; };
+		2EBD70D51AF970A00068A67D /* Data+DataInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Data+DataInterface.m"; sourceTree = "<group>"; };
+		2ED713D51AFA2FAA00B8EE67 /* TextFieldEnhanced.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldEnhanced.h; sourceTree = "<group>"; };
+		2ED713D61AFA2FAA00B8EE67 /* TextFieldEnhanced.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldEnhanced.m; sourceTree = "<group>"; };
+		2ED713D81AFA34DE00B8EE67 /* TableViewEnhanced.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewEnhanced.h; sourceTree = "<group>"; };
+		2ED713D91AFA34DE00B8EE67 /* TableViewEnhanced.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewEnhanced.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,10 +151,10 @@
 		2E2CA4CE1AE40D2A00E3FAE6 /* Chart */ = {
 			isa = PBXGroup;
 			children = (
-				2E2CA5111AE543B200E3FAE6 /* Views */,
+				2E59F4DB1AF7B295006776B0 /* Data */,
 				2E2CA4F51AE40D3200E3FAE6 /* Models */,
-				2E2CA4D61AE40D2A00E3FAE6 /* ViewController.h */,
-				2E2CA4D71AE40D2A00E3FAE6 /* ViewController.m */,
+				2E2CA5111AE543B200E3FAE6 /* Views */,
+				2EBD70C41AF94E600068A67D /* Controllers */,
 				2E2CA4CF1AE40D2A00E3FAE6 /* Supporting Files */,
 			);
 			path = Chart;
@@ -145,8 +165,8 @@
 			children = (
 				2E2CA50A1AE5429B00E3FAE6 /* Fonts */,
 				2E2CA4D91AE40D2A00E3FAE6 /* Main.storyboard */,
-				2E2CA4DC1AE40D2A00E3FAE6 /* Images.xcassets */,
 				2E2CA4DE1AE40D2A00E3FAE6 /* LaunchScreen.xib */,
+				2E2CA4DC1AE40D2A00E3FAE6 /* Images.xcassets */,
 				2E2CA4D01AE40D2A00E3FAE6 /* Info.plist */,
 				2E2CA4D11AE40D2A00E3FAE6 /* main.m */,
 				2E2CA4D31AE40D2A00E3FAE6 /* AppDelegate.h */,
@@ -181,22 +201,11 @@
 			children = (
 				2E9FA18F1AF17E9E00B6778B /* MWConstants.h */,
 				2E9FA1901AF17E9E00B6778B /* MWConstants.m */,
+				2E9F23551AF7913B00F43636 /* Visual */,
 				2E2CA4F61AE40D6E00E3FAE6 /* MWData.h */,
 				2E2CA4F71AE40D6E00E3FAE6 /* MWData.m */,
 				2E2CA4FB1AE4101100E3FAE6 /* MWDataContainer.h */,
 				2E2CA4FC1AE4101100E3FAE6 /* MWDataContainer.m */,
-				2E2CA5001AE4188B00E3FAE6 /* MWChartBar.h */,
-				2E2CA5011AE4188B00E3FAE6 /* MWChartBar.m */,
-				2E3F5EAC1AE5A5A20039C52B /* MWChartLine.h */,
-				2E3F5EAD1AE5A5A20039C52B /* MWChartLine.m */,
-				2E3F5EAF1AE6B6460039C52B /* MWChartGoalLine.h */,
-				2E3F5EB01AE6B6460039C52B /* MWChartGoalLine.m */,
-				2E2CA5051AE41A6E00E3FAE6 /* MWChart.h */,
-				2E2CA5061AE41A6E00E3FAE6 /* MWChart.m */,
-				2E6C91501AED493E0022CFD5 /* MWDayLabel.h */,
-				2E6C91511AED493E0022CFD5 /* MWDayLabel.m */,
-				2E6C91531AED62680022CFD5 /* MWMonthLabel.h */,
-				2E6C91541AED62680022CFD5 /* MWMonthLabel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -214,6 +223,7 @@
 		2E2CA5111AE543B200E3FAE6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2ED713D41AFA2F6000B8EE67 /* Form */,
 				2E2CA5121AE543D000E3FAE6 /* MWChartView.h */,
 				2E2CA5131AE543D000E3FAE6 /* MWChartView.m */,
 				2E6C91591AED80500022CFD5 /* MWChartHeaderView.h */,
@@ -222,6 +232,61 @@
 				2E6C91571AED7E030022CFD5 /* MWChartContainerView.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		2E59F4DB1AF7B295006776B0 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				2EBD70CB1AF95B5F0068A67D /* Data.h */,
+				2EBD70CC1AF95B5F0068A67D /* Data.m */,
+				2E59F4DC1AF7B2B6006776B0 /* Data.xcdatamodeld */,
+				2EBD70D41AF970A00068A67D /* Data+DataInterface.h */,
+				2EBD70D51AF970A00068A67D /* Data+DataInterface.m */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		2E9F23551AF7913B00F43636 /* Visual */ = {
+			isa = PBXGroup;
+			children = (
+				2E2CA5001AE4188B00E3FAE6 /* MWChartBar.h */,
+				2E2CA5011AE4188B00E3FAE6 /* MWChartBar.m */,
+				2E3F5EAC1AE5A5A20039C52B /* MWChartMarkerLine.h */,
+				2E3F5EAD1AE5A5A20039C52B /* MWChartMarkerLine.m */,
+				2E3F5EAF1AE6B6460039C52B /* MWChartGoalLine.h */,
+				2E3F5EB01AE6B6460039C52B /* MWChartGoalLine.m */,
+				2E2CA5051AE41A6E00E3FAE6 /* MWChart.h */,
+				2E2CA5061AE41A6E00E3FAE6 /* MWChart.m */,
+				2E6C91501AED493E0022CFD5 /* MWDayLabel.h */,
+				2E6C91511AED493E0022CFD5 /* MWDayLabel.m */,
+				2E6C91531AED62680022CFD5 /* MWMonthLabel.h */,
+				2E6C91541AED62680022CFD5 /* MWMonthLabel.m */,
+			);
+			name = Visual;
+			sourceTree = "<group>";
+		};
+		2EBD70C41AF94E600068A67D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2E2CA4D61AE40D2A00E3FAE6 /* ChartViewController.h */,
+				2E2CA4D71AE40D2A00E3FAE6 /* ChartViewController.m */,
+				2E9F23561AF7928000F43636 /* DataViewController.h */,
+				2E9F23571AF7928000F43636 /* DataViewController.m */,
+				2EBD70CE1AF963190068A67D /* DataTableViewCell.h */,
+				2EBD70CF1AF963190068A67D /* DataTableViewCell.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		2ED713D41AFA2F6000B8EE67 /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				2ED713D51AFA2FAA00B8EE67 /* TextFieldEnhanced.h */,
+				2ED713D61AFA2FAA00B8EE67 /* TextFieldEnhanced.m */,
+				2ED713D81AFA34DE00B8EE67 /* TableViewEnhanced.h */,
+				2ED713D91AFA34DE00B8EE67 /* TableViewEnhanced.m */,
+			);
+			name = Form;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,21 +392,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E2CA4D81AE40D2A00E3FAE6 /* ViewController.m in Sources */,
+				2E2CA4D81AE40D2A00E3FAE6 /* ChartViewController.m in Sources */,
 				2E6C91581AED7E030022CFD5 /* MWChartContainerView.m in Sources */,
 				2E2CA5141AE543D000E3FAE6 /* MWChartView.m in Sources */,
+				2EBD70D01AF963190068A67D /* DataTableViewCell.m in Sources */,
 				2E9FA1911AF17E9E00B6778B /* MWConstants.m in Sources */,
 				2E2CA4F81AE40D6E00E3FAE6 /* MWData.m in Sources */,
 				2E2CA4D51AE40D2A00E3FAE6 /* AppDelegate.m in Sources */,
+				2ED713DA1AFA34DE00B8EE67 /* TableViewEnhanced.m in Sources */,
+				2EBD70D61AF970A00068A67D /* Data+DataInterface.m in Sources */,
 				2E2CA5021AE4188B00E3FAE6 /* MWChartBar.m in Sources */,
-				2E3F5EAE1AE5A5A20039C52B /* MWChartLine.m in Sources */,
+				2E59F4DE1AF7B2B6006776B0 /* Data.xcdatamodeld in Sources */,
+				2E3F5EAE1AE5A5A20039C52B /* MWChartMarkerLine.m in Sources */,
+				2E9F23581AF7928000F43636 /* DataViewController.m in Sources */,
 				2E2CA5071AE41A6E00E3FAE6 /* MWChart.m in Sources */,
 				2E6C91551AED62680022CFD5 /* MWMonthLabel.m in Sources */,
 				2E3F5EB11AE6B6460039C52B /* MWChartGoalLine.m in Sources */,
 				2E2CA4D21AE40D2A00E3FAE6 /* main.m in Sources */,
 				2E2CA4FD1AE4101100E3FAE6 /* MWDataContainer.m in Sources */,
+				2ED713D71AFA2FAA00B8EE67 /* TextFieldEnhanced.m in Sources */,
 				2E6C915B1AED80500022CFD5 /* MWChartHeaderView.m in Sources */,
 				2E6C91521AED493E0022CFD5 /* MWDayLabel.m in Sources */,
+				2EBD70CD1AF95B5F0068A67D /* Data.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,6 +627,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2E59F4DC1AF7B2B6006776B0 /* Data.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2E59F4DD1AF7B2B6006776B0 /* Data.xcdatamodel */,
+			);
+			currentVersion = 2E59F4DD1AF7B2B6006776B0 /* Data.xcdatamodel */;
+			path = Data.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2E2CA4C41AE40D2A00E3FAE6 /* Project object */;
 }

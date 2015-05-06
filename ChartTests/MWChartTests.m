@@ -9,7 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "MWChart.h"
 #import "MWChartBar.h"
-#import "MWChartLine.h"
+#import "MWChartMarkerLine.h"
 #import "MWConstants.h"
 #import <float.h>
 #define EPSILON 0.0001
@@ -24,7 +24,7 @@
 {
     NSArray *dataArray = @[[MWData dataWithValue:10 goal:0 date:nil]];
     MWDataContainer *dataContainer = [[MWDataContainer alloc] initWithDataArray:dataArray];
-    MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100];
+    MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100 dateComponents:nil];
     [chart createChart];
     
     XCTAssertEqual(chart.dataContainer.dataCount, 1);
@@ -35,7 +35,7 @@
     NSArray *dataArray = @[[MWData dataWithValue:0 goal:0 date:nil],
                            [MWData dataWithValue:0 goal:0 date:nil],];
     MWDataContainer *dataContainer = [[MWDataContainer alloc] initWithDataArray:dataArray];
-    MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100];
+    MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100 dateComponents:nil];
     [chart createChart];
     
     // Check bar heights
@@ -43,7 +43,7 @@
     XCTAssertEqualWithAccuracy(((MWChartBar *)chart.bars[1]).size.height, 0, FLT_EPSILON);
     
     // Check line positions
-    XCTAssertEqualWithAccuracy(((MWChartLine *)chart.markerLines[0]).position.y, 0, FLT_EPSILON);
+    XCTAssertEqualWithAccuracy(((MWChartMarkerLine *)chart.markerLines[0]).position.y, 0, FLT_EPSILON);
 }
 
 - (void)testBarHeightPositive
@@ -55,7 +55,7 @@
                            [MWData dataWithValue:25 goal:0 date:nil],
                            [MWData dataWithValue:max goal:0 date:nil]];
     MWDataContainer *dataContainer = [[MWDataContainer alloc] initWithDataArray:dataArray];
-    MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100];
+    MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100 dateComponents:nil];
     [chart createChart];
     
     NSInteger barLabelPadding = 21;
@@ -91,7 +91,7 @@
                            [MWData dataWithValue:-25 goal:0 date:nil],
                            [MWData dataWithValue:max goal:0 date:nil]];
     MWDataContainer *dataContainer = [[MWDataContainer alloc] initWithDataArray:dataArray];
-    MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100];
+    MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100 dateComponents:nil];
     [chart createChart];
     
     NSInteger barLabelPadding = 21;
@@ -126,7 +126,7 @@
                            [MWData dataWithValue:-25 goal:0 date:nil],
                            [MWData dataWithValue:75 goal:0 date:nil]];
     MWDataContainer *dataContainer = [[MWDataContainer alloc] initWithDataArray:dataArray];
-    MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100];
+    MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100 dateComponents:nil];
     [chart createChart];
     
     NSInteger barLabelPadding = 21;
@@ -164,7 +164,7 @@
                            [MWData dataWithValue:10 goal:0 date:nil],
                            [MWData dataWithValue:75 goal:0 date:nil]];
     MWDataContainer *dataContainer = [[MWDataContainer alloc] initWithDataArray:dataArray];
-    MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100];
+    MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100 dateComponents:nil];
     [chart createChart];
     
     NSInteger barLabelHeight = 18;
@@ -181,7 +181,7 @@
                            [MWData dataWithValue:-17 goal:0 date:nil],
                            [MWData dataWithValue:-72 goal:0 date:nil]];
     MWDataContainer *dataContainer = [[MWDataContainer alloc] initWithDataArray:dataArray];
-    MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100];
+    MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100 dateComponents:nil];
     [chart createChart];
     
     NSInteger barLabelHeight = 17;
@@ -200,7 +200,7 @@
                            [MWData dataWithValue:28 goal:0 date:nil],
                            [MWData dataWithValue:-73 goal:0 date:nil]];
     MWDataContainer *dataContainer = [[MWDataContainer alloc] initWithDataArray:dataArray];
-    MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100];
+    MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100 dateComponents:nil];
     [chart createChart];
     
     NSInteger barLabelHeight = 24;
@@ -221,7 +221,7 @@
                            [MWData dataWithValue:17 goal:0 date:nil],
                            [MWData dataWithValue:72 goal:0 date:nil]];
     MWDataContainer *dataContainer = [[MWDataContainer alloc] initWithDataArray:dataArray];
-    MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100];
+    MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100 dateComponents:nil];
     [chart createChart];
     
     NSInteger barLabelHeight = 15;
@@ -237,7 +237,7 @@
                            [MWData dataWithValue:-17 goal:0 date:nil],
                            [MWData dataWithValue:-59 goal:0 date:nil]];
     MWDataContainer *dataContainer = [[MWDataContainer alloc] initWithDataArray:dataArray];
-    MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100];
+    MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100 dateComponents:nil];
     [chart createChart];
     
     NSInteger barLabelHeight = 12;
@@ -254,7 +254,7 @@
                            [MWData dataWithValue:-23 goal:0 date:nil],
                            [MWData dataWithValue:72 goal:0 date:nil]];
     MWDataContainer *dataContainer = [[MWDataContainer alloc] initWithDataArray:dataArray];
-    MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100];
+    MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100 dateComponents:nil];
     [chart createChart];
     
     NSInteger barLabelHeight = 20;

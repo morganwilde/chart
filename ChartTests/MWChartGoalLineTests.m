@@ -25,7 +25,7 @@
                            [MWData dataWithValue:9 goal:50 date:nil],
                            [MWData dataWithValue:0 goal:10 date:nil]];
     MWDataContainer *dataContainer = [[MWDataContainer alloc] initWithDataArray:dataArray];
-    MWChart *chart = [[MWChart alloc] initWithDataContainer: dataContainer height:100];
+    MWChart *chart = [[MWChart alloc] initWithDataContainer:dataContainer height:100 dateComponents:nil];
     
     MWChartGoalLine *goalLine1 = [[MWChartGoalLine alloc] initWithGoal:10 chart:chart barRange:NSMakeRange(0, 1)];
     MWChartGoalLine *goalLine2 = [[MWChartGoalLine alloc] initWithGoal:50 chart:chart barRange:NSMakeRange(2, 0)];

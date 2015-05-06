@@ -8,7 +8,7 @@
 
 @import UIKit;
 
-@interface ViewController : UIViewController <UIScrollViewDelegate>
+@interface ChartViewController : UIViewController <UIScrollViewDelegate>
 
 @end
 

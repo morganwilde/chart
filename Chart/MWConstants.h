@@ -43,6 +43,7 @@
 + (CGFloat)zeroMarkerLineHeight;
 + (CGFloat)markerLineHeight;
 + (CGSize)goalLineEndCapSize;
++ (NSString *)goalLineDashPatternString;
 + (CGFloat)dayLabelTopPadding;
 + (CGFloat)dayLabelMiddlePadding;
 + (CGFloat)dayLabelBottomPadding;

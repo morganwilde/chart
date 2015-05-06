@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MWChartLine.h"
+#import "MWChartMarkerLine.h"
 
 @class MWChart;
 
@@ -20,6 +20,12 @@
 
 @property (nonatomic) CGFloat width;
 @property (nonatomic) CGFloat positionX;
+@property (nonatomic) CGPoint startPoint;
+@property (nonatomic) CGPoint endPoint;
+@property (nonatomic) CGRect startCapFrame;
+@property (nonatomic) CGRect endCapFrame;
+
+@property (nonatomic) CGFloat *dashPattern;
 
 - (instancetype)initWithGoal:(NSInteger)goal chart:(MWChart *)chart barRange:(NSRange)range;
 

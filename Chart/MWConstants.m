@@ -92,6 +92,7 @@
 + (CGFloat)zeroMarkerLineHeight { return 2; }
 + (CGFloat)markerLineHeight { return 0.5; }
 + (CGSize)goalLineEndCapSize { return CGSizeMake(4, 4); }
++ (NSString *)goalLineDashPatternString { return @"------  "; }
 + (CGFloat)dayLabelTopPadding { return 6; }
 + (CGFloat)dayLabelMiddlePadding { return 1; }
 + (CGFloat)dayLabelBottomPadding { return 6; }

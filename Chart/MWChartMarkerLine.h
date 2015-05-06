@@ -12,17 +12,19 @@
 
 @class MWChartGoalLine;
 
-@interface MWChartLine : NSObject
+@interface MWChartMarkerLine : NSObject
 
 @property (nonatomic) CGSize size;
 @property (nonatomic) CGPoint position;
 @property (nonatomic) NSInteger level;
 
 @property (nonatomic) NSMutableArray *goalLines;
+@property (nonatomic) NSMutableArray *markerLineSegments;
 
 - (instancetype)initWithSize:(CGSize)size position:(CGPoint)position;
 
 - (CGRect)frame;
 - (void)addGoalLine:(MWChartGoalLine *)goalLine;
+- (void)addMarkerLineSegment:(CGRect)frame;
 
 @end
