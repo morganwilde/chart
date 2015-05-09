@@ -26,6 +26,13 @@
     return [[MWData alloc] initWithValue:value goal:goal date:date];
 }
 
++ (MWData *)dataWithData:(Data *)data
+{
+    return [[MWData alloc] initWithValue:data.value.integerValue
+                                    goal:data.goal.integerValue
+                                    date:data.date];
+}
+
 #pragma mark - Convenience methods
 
 - (NSInteger)dayNumber

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Data.h"
 
 @interface MWData : NSObject
 
@@ -16,6 +17,7 @@
 
 - (instancetype)initWithValue:(NSInteger)value goal:(NSInteger)goal date:(NSDate *)date;
 + (MWData *)dataWithValue:(NSInteger)value goal:(NSInteger)goal date:(NSDate *)date;
++ (MWData *)dataWithData:(Data *)data;
 
 - (NSInteger)dayNumber;
 

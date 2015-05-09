@@ -7,6 +7,7 @@
 //
 
 #import "MWDataContainer.h"
+#import "Data.h"
 
 @implementation MWDataContainer
 
@@ -14,7 +15,20 @@
 {
     self = [super init];
     if (self) {
-        self.dataArray = dataArray;
+        if (dataArray.count > 0) {
+            NSMutableArray *array = [NSMutableArray arrayWithCapacity:dataArray.count];
+            if ([dataArray[0] isKindOfClass:[Data class]]) {
+                int index = 0;
+                for (Data *data in dataArray) {
+                    array[index] = [MWData dataWithData:data];
+                    index++;
+                }
+                self.dataArray = array;
+            } else {
+                self.dataArray = dataArray;
+            }
+        }
+        
         self.minValue = NSIntegerMax;
         self.maxValue = NSIntegerMin;
         self.valueRange = NSIntegerMax;

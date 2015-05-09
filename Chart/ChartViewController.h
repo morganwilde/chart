@@ -7,8 +7,14 @@
 //
 
 @import UIKit;
+// Models
+#import "MWChartsManager.h"
 
 @interface ChartViewController : UIViewController <UIScrollViewDelegate>
+
+@property (nonatomic) MWChartsManager *chartsManager;
+
+@property (nonatomic) NSArray *dataArray;
 
 @end
 

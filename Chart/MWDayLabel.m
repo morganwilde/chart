@@ -9,6 +9,7 @@
 #import "MWDayLabel.h"
 
 #import "MWConstants.h"
+#import "MWEnums.h"
 
 @interface MWDayLabel ()
 

@@ -13,6 +13,7 @@
 #import "Data+DataInterface.h"
 #import "TextFieldEnhanced.h"
 #import "TableViewEnhanced.h"
+#import "ChartViewController.h"
 
 @interface DataViewController ()
 
@@ -73,6 +74,8 @@
     self.addDatePickerParentView.layer.cornerRadius = 5;
     self.addDatePickerParentView.layer.borderColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.5].CGColor;
     self.addDatePickerParentView.layer.borderWidth = 0.5;
+    
+    NSLog(@"here");
 }
 
 - (void)viewDidLayoutSubviews
@@ -171,6 +174,11 @@
         fetchRequest.entity = entityDescription;
         NSError *fetchError;
         _dataArray = [self.managedObjectContext executeFetchRequest:fetchRequest error:&fetchError];
+        
+        // Update chart controller
+        ChartViewController *chartController = (ChartViewController *)self.tabBarController.viewControllers[0];
+        chartController.dataArray = nil;
+        [chartController viewDidLoad];
     }
     return _dataArray;
 }
@@ -338,6 +346,9 @@
     Data *existingData = [self fetchDataWith:dateRounded];
     
     NSUInteger index = [self.dataArray indexOfObject:existingData];
+    if (index > 0) {
+        index--;
+    }
     
     [self.managedObjectContext deleteObject:existingData];
     [self finilizeEditing];

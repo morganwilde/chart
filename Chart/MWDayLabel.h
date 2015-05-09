@@ -8,16 +8,6 @@
 
 @import UIKit;
 
-typedef NS_ENUM(NSInteger, MWWeekday) {
-    MWMonday = 1,
-    MWTuesday = 2,
-    MWWednesday = 3,
-    MWThursday = 4,
-    MWFriday = 5,
-    MWSaturday = 6,
-    MWSunday = 0
-};
-
 @interface MWDayLabel : NSObject
 
 @property (nonatomic) NSInteger dayNumber;
